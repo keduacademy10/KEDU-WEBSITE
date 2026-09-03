@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>KEDU Admin</title>
+
+
+    <!-- START: LOADING CSS -->
+
+    <link
+        rel="stylesheet"
+        href="css/loading.css"
+    >
+
+    <!-- END: LOADING CSS -->
+
+
+    <!-- START: ADMIN CSS -->
+
+    <link
+        rel="stylesheet"
+        href="css/admin.css"
+    >
+
+    <!-- END: ADMIN CSS -->
+
+</head>
+
+
+<body data-app-name="KEDU ADMIN">
+
+
+    <!-- =================================
+         START: KEDU ADMIN LOADING SCREEN
+    ================================== -->
+
+    <div
+        id="loading-screen"
+        class="loading-screen"
+    >
+
+        <div class="loading-content">
+
+
+            <!-- START: LOGO -->
+
+            <img
+                src="assets/logo/kedu-logo.png"
+                alt="KEDU Logo"
+                class="loading-logo"
+            >
+
+            <!-- END: LOGO -->
+
+
+            <!-- START: TITLE -->
+
+            <h1 class="loading-title">
+
+                KEDU ADMIN
+
+            </h1>
+
+            <!-- END: TITLE -->
+
+
+            <!-- START: LOADING MESSAGE -->
+
+            <p class="loading-text">
+
+                Preparing Your Experience
+
+            </p>
+
+            <!-- END: LOADING MESSAGE -->
+
+
+            <!-- START: PROGRESS -->
+
+            <div class="progress-wrapper">
+
+
+                <div class="progress-track">
+
+
+                    <div
+                        id="loading-progress"
+                        class="progress-bar"
+                    ></div>
+
+
+                </div>
+
+
+                <span
+                    id="loading-percent"
+                    class="loading-percent"
+                >
+
+                    0%
+
+                </span>
+
+
+            </div>
+
+            <!-- END: PROGRESS -->
+
+
+        </div>
+
+    </div>
+
+    <!-- =================================
+         END: KEDU ADMIN LOADING SCREEN
+    ================================== -->
+
+
+        <!-- =================================
+         START: ADMIN APPLICATION
+    ================================== -->
+
+    <main id="admin-app">
+
+
+        <!-- ==============================
+             START: ADMIN LOGIN
+        =============================== -->
+
+        <section
+            id="admin-login"
+            class="admin-login"
+        >
+
+            <div class="login-card">
+
+
+                <!-- START: LOGIN BRAND -->
+
+                <div class="login-brand">
+
+                    <img
+                        src="assets/logo/kedu-logo.png"
+                        alt="KEDU Logo"
+                        class="login-logo"
+                    >
+
+                    <div>
+
+                        <span class="login-small-title">
+
+                            ADMINISTRATION
+
+                        </span>
+
+                        <h1>
+
+                            KEDU ADMIN
+
+                        </h1>
+
+                    </div>
+
+                </div>
+
+                <!-- END: LOGIN BRAND -->
+
+
+                <!-- START: LOGIN TEXT -->
+
+                <div class="login-heading">
+
+                    <h2>
+
+                        Welcome Back
+
+                    </h2>
+
+                    <p>
+
+                        Sign in to manage the KEDU ecosystem.
+
+                    </p>
+
+                </div>
+
+                <!-- END: LOGIN TEXT -->
+
+
+                <!-- START: LOGIN FORM -->
+
+                <form
+                    id="login-form"
+                    class="login-form"
+                >
+
+                    <label for="admin-email">
+
+                        Email Address
+
+                    </label>
+
+                    <input
+                        type="email"
+                        id="admin-email"
+                        placeholder="Enter your email"
+                        autocomplete="email"
+                        required
+                    >
+
+
+                    <label for="admin-password">
+
+                        Password
+
+                    </label>
+
+                    <div class="password-box">
+
+                        <input
+                            type="password"
+                            id="admin-password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            id="toggle-password"
+                            class="toggle-password"
+                            aria-label="Show password"
+                        >
+
+                            👁
+
+                        </button>
+
+                    </div>
+
+
+                    <p
+                        id="login-error"
+                        class="login-error"
+                    ></p>
+
+
+                    <button
+                        type="submit"
+                        class="login-button"
+                    >
+
+                        LOGIN TO ADMIN
+
+                        <span>
+
+                            →
+
+                        </span>
+
+                    </button>
+
+                </form>
+
+                <!-- END: LOGIN FORM -->
+
+
+                <p class="login-footer">
+
+                    KEDU Ecosystem Administration
+
+                </p>
+
+
+            </div>
+
+        </section>
+
+        <!-- ==============================
+             END: ADMIN LOGIN
+        =============================== -->
+
+
+        <!-- ==============================
+             START: ADMIN DASHBOARD
+        =============================== -->
+
+        <section
+            id="admin-dashboard"
+            class="admin-dashboard hidden"
+        >
+
+
+            <!-- START: HEADER -->
+
+            <header class="admin-header">
+
+                <button
+                    type="button"
+                    id="menu-button"
+                    class="header-menu-button"
+                    aria-label="Open menu"
+                >
+
+                    ☰
+
+                </button>
+
+
+                <div class="admin-header-brand">
+
+                    <img
+                        src="assets/logo/kedu-logo.png"
+                        alt="KEDU"
+                    >
+
+                    <div>
+
+                        <span>
+
+                            ADMIN PANEL
+
+                        </span>
+
+                        <h1>
+
+                            KEDU ADMIN
+
+                        </h1>
+
+                    </div>
+
+                </div>
+
+
+                <div class="header-status">
+
+                    <span></span>
+
+                    Online
+
+                </div>
+
+            </header>
+
+            <!-- END: HEADER -->
+
+
+            <!-- START: SIDEBAR -->
+
+            <aside
+                id="admin-sidebar"
+                class="admin-sidebar"
+            >
+
+                <div class="sidebar-top">
+
+                    <div class="sidebar-brand">
+
+                        <img
+                            src="assets/logo/kedu-logo.png"
+                            alt="KEDU"
+                        >
+
+                        <div>
+
+                            <h2>
+
+                                KEDU ADMIN
+
+                            </h2>
+
+                            <p>
+
+                                Management Panel
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="close-menu"
+                        class="close-menu"
+                    >
+
+                        ×
+
+                    </button>
+
+                </div>
+
+
+                <nav class="sidebar-nav">
+
+                    <button
+                        type="button"
+                        class="sidebar-item active"
+                        data-page="apps"
+                    >
+
+                        <span>
+
+                            ▦
+
+                        </span>
+
+                        Apps
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="sidebar-item"
+                        data-page="messages"
+                    >
+
+                        <span>
+
+                            ✉
+
+                        </span>
+
+                        Message
+
+                        <small
+                            id="sidebar-message-count"
+                        >
+
+                            0
+
+                        </small>
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        id="logout-button"
+                        class="sidebar-item logout-item"
+                    >
+
+                        <span>
+
+                            ↪
+
+                        </span>
+
+                        Logout
+
+                    </button>
+
+                </nav>
+
+
+                <!-- START: SIDEBAR FOOTER -->
+
+                <div class="sidebar-footer">
+
+                    <strong>
+
+                        KEDU
+
+                    </strong>
+
+                    <span>
+
+                        Learn. Explore. Grow.
+
+                    </span>
+
+                    <p>
+
+                        Made with ❤️ in India
+
+                    </p>
+
+                </div>
+
+                <!-- END: SIDEBAR FOOTER -->
+
+
+            </aside>
+
+            <!-- END: SIDEBAR -->
+
+
+            <!-- START: SIDEBAR OVERLAY -->
+
+            <div
+                id="sidebar-overlay"
+                class="sidebar-overlay"
+            ></div>
+
+            <!-- END: SIDEBAR OVERLAY -->
+
+
+            <!-- START: CONTENT -->
+
+            <section class="dashboard-content">
+
+
+                <!-- ======================
+                     START: APPS PAGE
+                ======================= -->
+
+                <div
+                    id="apps-page"
+                    class="dashboard-page active"
+                >
+
+
+                    <!-- START: PAGE HERO -->
+
+                    <div class="dashboard-hero">
+
+                        <div>
+
+                            <span>
+
+                                APPLICATION MANAGEMENT
+
+                            </span>
+
+                            <h2>
+
+                                KEDU Apps
+
+                            </h2>
+
+                            <p>
+
+                                Manage applications and monitor your KEDU ecosystem.
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="hero-admin-badge">
+
+                            ADMIN
+
+                        </div>
+
+                    </div>
+
+                    <!-- END: PAGE HERO -->
+
+
+                    <!-- START: STATS -->
+
+                    <div class="stats-grid">
+
+
+                        <article class="stat-card">
+
+                            <div class="stat-icon">
+
+                                ▦
+
+                            </div>
+
+                            <div>
+
+                                <span>
+
+                                    Total Apps
+
+                                </span>
+
+                                <strong
+                                    id="total-apps"
+                                >
+
+                                    0
+
+                                </strong>
+
+                            </div>
+
+                        </article>
+
+
+                        <article class="stat-card">
+
+                            <div class="stat-icon active-icon">
+
+                                ●
+
+                            </div>
+
+                            <div>
+
+                                <span>
+
+                                    Active Apps
+
+                                </span>
+
+                                <strong
+                                    id="active-apps"
+                                >
+
+                                    0
+
+                                </strong>
+
+                            </div>
+
+                        </article>
+
+
+                        <article class="stat-card stat-download">
+
+                            <div class="stat-icon">
+
+                                ↓
+
+                            </div>
+
+                            <div>
+
+                                <span>
+
+                                    Total Downloads
+
+                                </span>
+
+                                <strong
+                                    id="total-downloads"
+                                >
+
+                                    0
+
+                                </strong>
+
+                            </div>
+
+                        </article>
+
+
+                    </div>
+
+                    <!-- END: STATS -->
+
+
+                    <!-- START: QUICK ACTIONS -->
+
+                    <section class="quick-actions">
+
+                        <button
+                            type="button"
+                            id="add-app-button"
+                            class="quick-action-card"
+                        >
+
+                            <span class="quick-icon">
+
+                                +
+
+                            </span>
+
+                            <div>
+
+                                <strong>
+
+                                    Add New Apps
+
+                                </strong>
+
+                                <small>
+
+                                    Add a new KEDU application
+
+                                </small>
+
+                            </div>
+
+                            <b>
+
+                                →
+
+                            </b>
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            id="manage-apps-button"
+                            class="quick-action-card"
+                        >
+
+                            <span class="quick-icon">
+
+                                ⚙
+
+                            </span>
+
+                            <div>
+
+                                <strong>
+
+                                    Manage Apps
+
+                                </strong>
+
+                                <small>
+
+                                    Edit apps and download links
+
+                                </small>
+
+                            </div>
+
+                            <b>
+
+                                →
+
+                            </b>
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            id="open-website-button"
+                            class="quick-action-card"
+                        >
+
+                            <span class="quick-icon">
+
+                                ↗
+
+                            </span>
+
+                            <div>
+
+                                <strong>
+
+                                    Open Website
+
+                                </strong>
+
+                                <small>
+
+                                    Open KEDU World
+
+                                </small>
+
+                            </div>
+
+                            <b>
+
+                                →
+
+                            </b>
+
+                        </button>
+
+
+                    </section>
+
+                    <!-- END: QUICK ACTIONS -->
+
+
+                    <!-- START: APP LIST -->
+
+                    <section class="apps-section">
+
+                        <div class="section-heading">
+
+                            <div>
+
+                                <span>
+
+                                    YOUR ECOSYSTEM
+
+                                </span>
+
+                                <h3>
+
+                                    All Applications
+
+                                </h3>
+
+                            </div>
+
+                            <span
+                                id="apps-count-badge"
+                                class="count-badge"
+                            >
+
+                                0 Apps
+
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            id="apps-list"
+                            class="apps-list"
+                        ></div>
+
+                    </section>
+
+                    <!-- END: APP LIST -->
+
+
+                </div>
+
+                <!-- ======================
+                     END: APPS PAGE
+                ======================= -->
+
+
+                <!-- ======================
+                     START: MESSAGE PAGE
+                ======================= -->
+
+                <div
+                    id="messages-page"
+                    class="dashboard-page"
+                >
+
+                    <div class="dashboard-hero">
+
+                        <div>
+
+                            <span>
+
+                                USER COMMUNICATION
+
+                            </span>
+
+                            <h2>
+
+                                Messages
+
+                            </h2>
+
+                            <p>
+
+                                Messages received from KEDU users will appear here.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <section
+                        id="messages-list"
+                        class="messages-list"
+                    >
+
+                        <div class="empty-state">
+
+                            <div>
+
+                                ✉
+
+                            </div>
+
+                            <h3>
+
+                                No Messages Yet
+
+                            </h3>
+
+                            <p>
+
+                                User messages will appear here.
+
+                            </p>
+
+                        </div>
+
+                    </section>
+
+
+                </div>
+
+                <!-- ======================
+                     END: MESSAGE PAGE
+                ======================= -->
+
+
+            </section>
+
+            <!-- END: CONTENT -->
+
+
+            <!-- START: BOTTOM NAVIGATION -->
+
+            <nav class="admin-bottom-nav">
+
+
+                <button
+                    type="button"
+                    class="bottom-nav-item active"
+                    data-page="apps"
+                >
+
+                    <span>
+
+                        ▦
+
+                    </span>
+
+                    Apps
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="bottom-nav-item"
+                    data-page="messages"
+                >
+
+                    <span class="nav-message-icon">
+
+                        ✉
+
+                        <small
+                            id="bottom-message-count"
+                        >
+
+                            0
+
+                        </small>
+
+                    </span>
+
+                    Message
+
+                </button>
+
+
+            </nav>
+
+            <!-- END: BOTTOM NAVIGATION -->
+
+
+            <!-- START: ADD APP MODAL -->
+
+            <div
+                id="app-modal"
+                class="admin-modal"
+            >
+
+                <div class="modal-card">
+
+
+                    <div class="modal-header">
+
+                        <div>
+
+                            <span>
+
+                                APPLICATION
+
+                            </span>
+
+                            <h3>
+
+                                Add New App
+
+                            </h3>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            id="close-app-modal"
+                        >
+
+                            ×
+
+                        </button>
+
+                    </div>
+
+
+                                        <!-- START: ADD APPLICATION FORM -->
+
+                    <form
+                        id="app-form"
+                        class="app-form"
+                    >
+
+
+                        <!-- START: APP NAME -->
+
+                        <label for="app-name">
+
+                            App Name
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="app-name"
+                            placeholder="Example: KEDU PW"
+                            required
+                        >
+
+                        <!-- END: APP NAME -->
+
+
+                        <!-- START: DEVELOPER NAME -->
+
+                        <label for="app-developer">
+
+                            Developer Name
+                            <span class="optional-text">
+                                (Optional)
+                            </span>
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="app-developer"
+                            placeholder="Example: KEDU"
+                        >
+
+                        <!-- END: DEVELOPER NAME -->
+
+
+                        <!-- START: FILE SIZE -->
+
+                        <label for="app-file-size">
+
+                            File Size
+                            <span class="optional-text">
+                                (Optional)
+                            </span>
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="app-file-size"
+                            placeholder="Example: 45 MB"
+                        >
+
+                        <!-- END: FILE SIZE -->
+
+
+                        <!-- START: VERSION -->
+
+                        <label for="app-version">
+
+                            Version
+                            <span class="optional-text">
+                                (Optional)
+                            </span>
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="app-version"
+                            placeholder="Example: 1.0.0"
+                        >
+
+                        <!-- END: VERSION -->
+
+
+                        <!-- START: DESCRIPTION -->
+
+                        <label for="app-description">
+
+                            Description
+                            <span class="optional-text">
+                                (Optional)
+                            </span>
+
+                        </label>
+
+                        <textarea
+                            id="app-description"
+                            placeholder="Write a short description about this application..."
+                            rows="4"
+                        ></textarea>
+
+                        <!-- END: DESCRIPTION -->
+
+
+                        <!-- START: APP LINK -->
+
+                        <label for="app-link">
+
+                            Add Link
+
+                        </label>
+
+                        <input
+                            type="url"
+                            id="app-link"
+                            placeholder="Leave empty for Coming Soon"
+                        >
+
+                        <!-- END: APP LINK -->
+
+
+                        <!-- START: APP ICON -->
+
+                        <label for="app-icon">
+
+                            Add App Icon
+
+                        </label>
+
+                        <div class="app-icon-upload">
+
+                            <div
+                                id="app-icon-preview"
+                                class="app-icon-preview"
+                            >
+
+                                <span>
+                                    +
+                                </span>
+
+                            </div>
+
+
+                            <div class="app-icon-upload-content">
+
+                                <strong>
+                                    Application Icon
+                                </strong>
+
+                                <small>
+                                    PNG, JPG or WEBP
+                                </small>
+
+                                <input
+                                    type="file"
+                                    id="app-icon"
+                                    accept="image/png,image/jpeg,image/webp"
+                                >
+
+                            </div>
+
+                        </div>
+
+                        <!-- END: APP ICON -->
+
+
+                        <!-- START: SAVE BUTTON -->
+
+                        <button
+                            type="submit"
+                            class="save-app-button"
+                        >
+
+                            SAVE APPLICATION
+
+                        </button>
+
+                        <!-- END: SAVE BUTTON -->
+
+
+                    </form>
+
+                    <!-- END: ADD APPLICATION FORM -->
+
+                </div>
+
+            </div>
+
+            <!-- END: ADD APP MODAL -->
+
+
+        </section>
+
+        <!-- ==============================
+             END: ADMIN DASHBOARD
+        =============================== -->
+
+
+    </main>
+
+    <!-- =================================
+         END: ADMIN APPLICATION
+    ================================== -->
+
+
+    <!-- START: LOADING JAVASCRIPT -->
+
+<script src="js/loading.js"></script>
+
+<!-- END: LOADING JAVASCRIPT -->
+
+
+<!-- START: SUPABASE LIBRARY -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- END: SUPABASE LIBRARY -->
+
+
+<!-- START: KEDU SUPABASE -->
+
+<script src="js/supabase.js"></script>
+
+<!-- END: KEDU SUPABASE -->
+
+
+<!-- START: ADMIN JAVASCRIPT -->
+
+<script src="js/admin.js"></script>
+
+<!-- END: ADMIN JAVASCRIPT -->
+
+
+</body>
+
+</html>

@@ -1,0 +1,342 @@
+/* =========================================
+   KEDU WORLD — LOADING SCREEN
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+}
+
+
+body {
+    font-family:
+        Arial,
+        sans-serif;
+
+    background:
+        #ffffff;
+
+    color:
+        #0A1F5C;
+}
+
+
+/* =========================================
+   LOADING SCREEN
+========================================= */
+
+.loading-screen {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    min-height:
+        100vh;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #061638,
+            #0A1F5C,
+            #102D73
+        );
+
+    z-index:
+        99999;
+
+    opacity:
+        1;
+
+    visibility:
+        visible;
+
+    transition:
+        opacity 0.7s ease,
+        visibility 0.7s ease;
+
+}
+
+
+/* =========================================
+   HIDDEN STATE
+========================================= */
+
+.loading-screen.loading-hidden {
+
+    opacity:
+        0;
+
+    visibility:
+        hidden;
+
+    pointer-events:
+        none;
+
+}
+
+
+/* =========================================
+   LOADING CONTENT
+========================================= */
+
+.loading-content {
+
+    width:
+        min(
+            88%,
+            420px
+        );
+
+    text-align:
+        center;
+
+    padding:
+        30px;
+
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.loading-logo {
+
+    width:
+        120px;
+
+    height:
+        120px;
+
+    object-fit:
+        contain;
+
+    display:
+        block;
+
+    margin:
+        0 auto 20px;
+
+    animation:
+        logoPulse 2s ease-in-out infinite;
+
+}
+
+
+@keyframes logoPulse {
+
+    0%,
+    100% {
+
+        transform:
+            scale(1);
+
+    }
+
+
+    50% {
+
+        transform:
+            scale(1.05);
+
+    }
+
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.loading-title {
+
+    margin:
+        0;
+
+    color:
+        #F4B400;
+
+    font-size:
+        clamp(
+            32px,
+            8vw,
+            52px
+        );
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        2px;
+
+}
+
+
+/* =========================================
+   LOADING MESSAGE
+========================================= */
+
+.loading-text {
+
+    min-height:
+        24px;
+
+    margin:
+        12px 0 28px;
+
+    color:
+        #ffffff;
+
+    font-size:
+        16px;
+
+    transition:
+        opacity 0.25s ease;
+
+}
+
+
+/* Message animation */
+
+.loading-text.message-changing {
+
+    opacity:
+        0.35;
+
+}
+
+
+/* =========================================
+   PROGRESS AREA
+========================================= */
+
+.progress-wrapper {
+
+    width:
+        100%;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+}
+
+
+/* =========================================
+   PROGRESS TRACK
+========================================= */
+
+.progress-track {
+
+    width:
+        100%;
+
+    height:
+        10px;
+
+    overflow:
+        hidden;
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.20
+        );
+
+}
+
+
+/* =========================================
+   PROGRESS BAR
+========================================= */
+
+.progress-bar {
+
+    width:
+        0%;
+
+    height:
+        100%;
+
+    border-radius:
+        inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            #F4B400,
+            #FFD54A
+        );
+
+    transition:
+        width 0.05s linear;
+
+}
+
+
+/* =========================================
+   PERCENTAGE
+========================================= */
+
+.loading-percent {
+
+    display:
+        block;
+
+    width:
+        100%;
+
+    margin-top:
+        14px;
+
+    color:
+        #ffffff;
+
+    text-align:
+        center;
+
+    font-size:
+        18px;
+
+    font-weight:
+        700;
+
+}

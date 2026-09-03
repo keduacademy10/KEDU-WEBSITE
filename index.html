@@ -1,0 +1,2104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>KEDU World</title>
+
+    <!-- Loading Screen CSS -->
+    <link
+        rel="stylesheet"
+        href="css/loading.css"
+    >
+<!-- START: ROOT CSS -->
+<link
+    rel="stylesheet"
+    href="css/root.css"
+>
+<!-- END: ROOT CSS -->
+
+
+<!-- START: MAIN CSS -->
+<link
+    rel="stylesheet"
+    href="css/style.css"
+>
+<!-- END: MAIN CSS -->
+  <!-- START: RESPONSIVE CSS -->
+
+<link
+    rel="stylesheet"
+    href="css/responsive.css"
+>
+
+<!-- END: RESPONSIVE CSS -->
+</head>
+
+<body>
+
+
+    <!-- ================================
+         START: KEDU LOADING SCREEN
+    ================================= -->
+
+    <div
+        id="loading-screen"
+        class="loading-screen"
+    >
+
+        <div class="loading-content">
+
+
+            <!-- KEDU LOGO -->
+
+            <img
+                src="assets/logo/kedu-logo.png"
+                alt="KEDU Logo"
+                class="loading-logo"
+            >
+
+
+            <!-- KEDU NAME -->
+
+            <h1 class="loading-title">
+
+                KEDU WORLD
+
+            </h1>
+
+
+            <!-- LOADING TEXT -->
+
+            <p class="loading-text">
+
+                Preparing Your Experience
+
+            </p>
+
+
+            <!-- PROGRESS -->
+
+            <div class="progress-wrapper">
+
+                <div
+                    class="progress-track"
+                >
+
+                    <div
+                        id="loading-progress"
+                        class="progress-bar"
+                    ></div>
+
+                </div>
+
+
+                <span
+                    id="loading-percent"
+                    class="loading-percent"
+                >
+
+                    0%
+
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <!-- ================================
+         END: KEDU LOADING SCREEN
+    ================================= -->
+
+
+    <!-- =================================
+     START: KEDU WORLD HEADER
+================================== -->
+
+<header class="kedu-header">
+
+
+    <!-- START: HAMBURGER BUTTON -->
+
+    <button
+        id="menu-button"
+        class="header-menu-button"
+        type="button"
+        aria-label="Open Menu"
+    >
+
+        ☰
+
+    </button>
+
+    <!-- END: HAMBURGER BUTTON -->
+
+
+    <!-- START: HEADER TITLE -->
+
+    <h1 class="header-title">
+
+        KEDU WORLD
+
+    </h1>
+
+    <!-- END: HEADER TITLE -->
+
+
+    <!-- START: HEADER RIGHT AREA -->
+
+    <div class="header-actions">
+
+
+        <!-- START: NOTIFICATION BUTTON -->
+
+        <button
+            id="notification-button"
+            class="header-notification-button"
+            type="button"
+            aria-label="Notifications"
+        >
+
+            <span
+                class="notification-icon"
+                aria-hidden="true"
+            >
+
+                🔔
+
+            </span>
+
+
+            <span
+                id="notification-badge"
+                class="notification-badge"
+                hidden
+            >
+
+                0
+
+            </span>
+
+
+        </button>
+
+        <!-- END: NOTIFICATION BUTTON -->
+
+
+    </div>
+
+    <!-- END: HEADER RIGHT AREA -->
+
+
+</header>
+
+<!-- =================================
+     END: KEDU WORLD HEADER
+================================== -->
+
+
+<!-- =================================
+     START: NOTIFICATION OVERLAY
+================================== -->
+
+<div
+    id="notification-overlay"
+    class="notification-overlay"
+    aria-hidden="true"
+></div>
+
+<!-- =================================
+     END: NOTIFICATION OVERLAY
+================================== -->
+
+
+<!-- =================================
+     START: NOTIFICATION PANEL
+================================== -->
+
+<section
+    id="notification-panel"
+    class="notification-panel"
+    aria-hidden="true"
+>
+
+
+    <!-- START: NOTIFICATION HEADER -->
+
+    <div class="notification-panel-header">
+
+
+        <div>
+
+            <span class="notification-panel-label">
+
+                KEDU UPDATES
+
+            </span>
+
+
+            <h2>
+
+                Notifications
+
+            </h2>
+
+        </div>
+
+
+        <button
+            id="notification-close"
+            class="notification-close"
+            type="button"
+            aria-label="Close notifications"
+        >
+
+            ×
+
+        </button>
+
+
+    </div>
+
+    <!-- END: NOTIFICATION HEADER -->
+
+
+    <!-- START: NOTIFICATION LIST -->
+
+    <div
+        id="notification-list"
+        class="notification-list"
+    ></div>
+
+    <!-- END: NOTIFICATION LIST -->
+
+
+    <!-- START: NOTIFICATION EMPTY -->
+
+    <div
+        id="notification-empty"
+        class="notification-empty"
+        hidden
+    >
+
+        <div class="notification-empty-icon">
+
+            ♢
+
+        </div>
+
+
+        <h3>
+
+            No Notifications
+
+        </h3>
+
+
+        <p>
+
+            You are all caught up.
+
+        </p>
+
+
+    </div>
+
+    <!-- END: NOTIFICATION EMPTY -->
+
+
+    <!-- START: NOTIFICATION FOOTER -->
+
+    <div class="notification-panel-footer">
+
+        <button
+            id="notification-mark-read"
+            class="notification-mark-read"
+            type="button"
+        >
+
+            MARK ALL AS READ
+
+        </button>
+
+    </div>
+
+    <!-- END: NOTIFICATION FOOTER -->
+
+
+</section>
+
+<!-- =================================
+     END: NOTIFICATION PANEL
+================================== -->
+
+
+<!-- =================================
+     START: DRAWER OVERLAY
+================================== -->
+<div
+    id="drawer-overlay"
+    class="drawer-overlay"
+></div>
+
+<!-- =================================
+     END: DRAWER OVERLAY
+================================== -->
+
+
+<!-- =================================
+     START: SIDE DRAWER
+================================== -->
+
+<aside
+    id="kedu-drawer"
+    class="kedu-drawer"
+>
+
+
+    <!-- START: DRAWER HEADER -->
+
+<div class="drawer-header">
+
+
+    <!-- START: DRAWER TOP BAR -->
+
+    <div class="drawer-top-bar">
+
+
+        <button
+            id="drawer-close-button"
+            class="drawer-close-button"
+            type="button"
+            aria-label="Close Menu"
+        >
+
+            ←
+
+        </button>
+
+
+        <span class="drawer-top-title">
+
+            Menu
+
+        </span>
+
+
+    </div>
+
+    <!-- END: DRAWER TOP BAR -->
+
+
+    <!-- START: DRAWER BRAND -->
+
+    <div class="drawer-brand">
+
+
+        <img
+            src="assets/logo/kedu-logo.png"
+            alt="KEDU Logo"
+            class="drawer-logo"
+        >
+
+
+        <h2 class="drawer-title">
+
+            KEDU WORLD
+
+        </h2>
+
+
+    </div>
+
+    <!-- END: DRAWER BRAND -->
+
+
+</div>
+
+<!-- END: DRAWER HEADER -->
+
+
+    <!-- START: DRAWER MENU -->
+
+    <nav class="drawer-menu">
+
+
+        <!-- START: HOME -->
+
+        <button
+            class="drawer-item active"
+            data-page="home"
+        >
+
+            <span class="menu-icon">
+
+                ⌂
+
+            </span>
+
+            <span>
+
+                Home
+
+            </span>
+
+        </button>
+
+        <!-- END: HOME -->
+
+
+        <!-- START: APPS -->
+
+        <button
+            class="drawer-item"
+            data-page="apps"
+        >
+
+            <span class="menu-icon">
+
+                ▣
+
+            </span>
+
+            <span>
+
+                Apps
+
+            </span>
+
+        </button>
+
+        <!-- END: APPS -->
+
+
+        <!-- START: FOLLOW US -->
+
+        <button
+            class="drawer-item"
+            data-page="follow"
+        >
+
+            <span class="menu-icon">
+
+                ♡
+
+            </span>
+
+            <span>
+
+                Follow Us
+
+            </span>
+
+        </button>
+
+        <!-- END: FOLLOW US -->
+
+
+        <!-- START: CONTACT US -->
+
+        <button
+            class="drawer-item"
+            data-page="contact"
+        >
+
+            <span class="menu-icon">
+
+                ✉
+
+            </span>
+
+            <span>
+
+                Contact Us
+
+            </span>
+
+        </button>
+
+        <!-- END: CONTACT US -->
+
+
+        <!-- START: SETTINGS -->
+
+        <button
+            id="settings-button"
+            class="drawer-item settings-button"
+            type="button"
+        >
+
+            <span>
+
+                <span class="menu-icon">
+
+                    ⚙
+
+                </span>
+
+                Settings
+
+            </span>
+
+
+            <span class="settings-arrow">
+
+                ▾
+
+            </span>
+
+
+        </button>
+
+        <!-- END: SETTINGS -->
+
+
+        <!-- START: SETTINGS SUBMENU -->
+
+        <div
+            id="settings-submenu"
+            class="settings-submenu"
+        >
+
+
+            <button
+    id="theme-button"
+    class="drawer-item"
+    type="button"
+>
+
+                <span class="menu-icon">
+
+                    ◐
+
+                </span>
+
+                <span>
+
+                    Theme
+
+                </span>
+
+            </button>
+
+
+            <button
+                class="drawer-item"
+                data-page="notification"
+            >
+
+                <span class="menu-icon">
+
+                    🔔
+
+                </span>
+
+                <span>
+
+                    Notification
+
+                </span>
+
+            </button>
+
+
+        </div>
+
+        <!-- END: SETTINGS SUBMENU -->
+
+
+        <!-- START: ABOUT KEDU -->
+
+        <button
+            class="drawer-item"
+            data-page="about"
+        >
+
+            <span class="menu-icon">
+
+                i
+
+            </span>
+
+            <span>
+
+                About KEDU
+
+            </span>
+
+        </button>
+
+        <!-- END: ABOUT KEDU -->
+
+
+    </nav>
+
+    <!-- END: DRAWER MENU -->
+
+
+    <!-- =================================
+         START: DRAWER FOOTER
+    ================================== -->
+
+    <footer class="drawer-footer">
+
+        <strong>
+            KEDU
+        </strong>
+
+        <span>
+            Learn. Explore. Grow.
+        </span>
+
+        <p>
+            Made with
+            <span class="drawer-footer-heart">❤</span>
+            in India
+        </p>
+
+    </footer>
+
+    <!-- =================================
+         END: DRAWER FOOTER
+    ================================== -->
+
+
+</aside>
+<!-- =================================
+     END: SIDE DRAWER
+================================== -->
+
+<!-- =================================
+     START: SOCIAL SVG ICONS
+================================== -->
+
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    style="display: none;"
+    aria-hidden="true"
+>
+
+
+    <!-- WHATSAPP -->
+
+    <symbol
+        id="icon-whatsapp"
+        viewBox="0 0 24 24"
+    >
+
+        <path
+            fill="currentColor"
+            d="M20.52 3.48A11.83 11.83 0 0 0 12.05 0C5.47 0 .12 5.35.12 11.94c0 2.1.55 4.14 1.59 5.94L0 24l6.29-1.65a11.88 11.88 0 0 0 5.75 1.47h.01c6.58 0 11.93-5.35 11.93-11.94 0-3.19-1.24-6.19-3.46-8.4ZM12.05 21.8a9.82 9.82 0 0 1-5.01-1.37l-.36-.21-3.73.98 1-3.63-.24-.37a9.85 9.85 0 0 1-1.51-5.25c0-5.43 4.42-9.85 9.86-9.85 2.63 0 5.1 1.02 6.96 2.88a9.78 9.78 0 0 1 2.88 6.95c0 5.43-4.42 9.86-9.85 9.86Zm5.4-7.39c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.95 1.18-.18.2-.35.23-.65.08-.3-.15-1.27-.47-2.42-1.49-.9-.8-1.5-1.78-1.68-2.08-.18-.3-.02-.46.13-.61.14-.14.3-.36.45-.54.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.08-.15-.68-1.66-.94-2.28-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.53.08-.81.38-.28.3-1.06 1.03-1.06 2.51s1.09 2.91 1.24 3.11c.15.2 2.14 3.27 5.19 4.58.73.32 1.3.51 1.74.65.73.23 1.39.2 1.91.12.58-.09 1.77-.72 2.02-1.42.25-.69.25-1.29.18-1.42-.08-.13-.28-.2-.58-.35Z"
+        />
+
+    </symbol>
+
+
+    <!-- YOUTUBE -->
+
+    <symbol
+        id="icon-youtube"
+        viewBox="0 0 24 24"
+    >
+
+        <path
+            fill="currentColor"
+            d="M23.5 6.19a3 3 0 0 0-2.11-2.12C19.52 3.55 12 3.55 12 3.55s-7.52 0-9.39.52A3 3 0 0 0 .5 6.19C0 8.06 0 12 0 12s0 3.94.5 5.81a3 3 0 0 0 2.11 2.12c1.87.52 9.39.52 9.39.52s7.52 0 9.39-.52a3 3 0 0 0 2.11-2.12C24 15.94 24 12 24 12s0-3.94-.5-5.81ZM9.55 15.58V8.42L15.82 12l-6.27 3.58Z"
+        />
+
+    </symbol>
+
+
+    <!-- TELEGRAM -->
+
+    <symbol
+        id="icon-telegram"
+        viewBox="0 0 24 24"
+    >
+
+        <path
+            fill="currentColor"
+            d="M21.9 3.2 18.6 20c-.25 1.18-.91 1.47-1.84.92l-5.05-3.72-2.44 2.35c-.27.27-.5.5-1.03.5l.37-5.14 9.36-8.46c.41-.37-.09-.58-.64-.21L5.76 13.61.79 12.06c-1.08-.34-1.1-1.08.23-1.57L20.45 2.9c.9-.34 1.68.21 1.45.3Z"
+        />
+
+    </symbol>
+
+
+    <!-- INSTAGRAM -->
+
+    <symbol
+        id="icon-instagram"
+        viewBox="0 0 24 24"
+    >
+
+        <rect
+            x="3"
+            y="3"
+            width="18"
+            height="18"
+            rx="5"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+        />
+
+        <circle
+            cx="12"
+            cy="12"
+            r="4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+        />
+
+        <circle
+            cx="17.5"
+            cy="6.5"
+            r="1"
+            fill="currentColor"
+        />
+
+    </symbol>
+
+
+    <!-- PINTEREST -->
+
+    <symbol
+        id="icon-pinterest"
+        viewBox="0 0 24 24"
+    >
+
+        <path
+            fill="currentColor"
+            d="M12 0a12 12 0 0 0-4.37 23.18c-.06-1.97-.01-4.34.5-6.49l1.16-4.91s-.29-.59-.29-1.46c0-1.37.79-2.39 1.78-2.39.84 0 1.24.63 1.24 1.38 0 .84-.54 2.1-.81 3.27-.23.98.49 1.78 1.45 1.78 1.74 0 3.08-1.83 3.08-4.48 0-2.34-1.68-3.98-4.08-3.98-2.78 0-4.41 2.08-4.41 4.24 0 .84.32 1.74.73 2.23.08.1.09.19.07.3l-.27 1.1c-.04.18-.15.22-.35.13-1.3-.61-2.11-2.5-2.11-4.03 0-3.28 2.38-6.3 6.87-6.3 3.61 0 6.42 2.57 6.42 5.99 0 3.57-2.25 6.45-5.37 6.45-1.05 0-2.04-.55-2.37-1.19l-.65 2.48c-.23.89-.87 2-1.29 2.68A12 12 0 1 0 12 0Z"
+        />
+
+    </symbol>
+
+
+</svg>
+
+<!-- =================================
+     END: SOCIAL SVG ICONS
+================================== -->
+<!-- =================================
+     START: HOME PAGE
+================================== -->
+
+< id="website-content">
+
+
+    <!-- =================================
+     START: WEBSITE CONTENT
+================================== -->
+
+<main id="website-content">
+
+
+    <!-- =================================
+         START: HOME PAGE
+    ================================== -->
+
+    <section
+        id="home"
+        class="page-section home-section active-page"
+    >
+
+
+        <!-- START: HOME HERO -->
+
+        <div class="home-hero">
+
+
+            <span class="section-label">
+
+                WELCOME TO
+
+            </span>
+
+
+            <h2 class="home-title">
+
+                KEDU WORLD
+
+            </h2>
+
+
+            <p class="home-description">
+
+                One place to discover all KEDU applications.
+
+            </p>
+
+
+        </div>
+
+        <!-- END: HOME HERO -->
+
+
+        <!-- START: EXPLORE CARD -->
+
+        <article class="explore-card">
+
+
+            <div class="explore-logo-area">
+
+                <img
+                    src="assets/logo/kedu-logo.png"
+                    alt="KEDU Logo"
+                    class="explore-logo"
+                >
+
+            </div>
+
+
+            <span class="explore-label">
+
+                KEDU ECOSYSTEM
+
+            </span>
+
+
+            <h3>
+
+                Explore KEDU
+
+            </h3>
+
+
+            <p>
+
+                Discover learning, study and educational
+                applications created by KEDU.
+
+            </p>
+
+
+            <button
+                id="explore-apps-button"
+                class="explore-apps-button"
+                type="button"
+            >
+
+                Explore Apps
+
+            </button>
+
+
+        </article>
+
+        <!-- END: EXPLORE CARD -->
+
+
+                <!-- START: HOME APP PILLS -->
+
+        <div
+            class="app-filter-pills home-filter-pills"
+        >
+
+            <button
+                class="app-filter-pill active"
+                data-app-filter="kedu"
+                type="button"
+            >
+                KEDU Apps
+            </button>
+
+
+            <button
+                class="app-filter-pill"
+                data-app-filter="other"
+                type="button"
+            >
+                Other Apps
+            </button>
+
+        </div>
+
+        <!-- END: HOME APP PILLS -->
+
+
+        <!-- START: HOME APPS GRID -->
+
+        <div
+            id="home-app-grid"
+            class="apps-grid home-apps-grid"
+        ></div>
+
+        <!-- END: HOME APPS GRID -->
+
+
+        <!-- START: HOME EMPTY RESULT -->
+
+        <p
+            id="home-apps-empty"
+            class="apps-empty"
+            hidden
+        >
+            No applications available in this category.
+        </p>
+
+                <!-- END: HOME EMPTY RESULT -->
+
+
+        <!-- =================================
+             START: HOME FOLLOW US
+        ================================== -->
+
+        <section
+            id="home-follow-section"
+            class="social-page-section home-follow-section"
+        >
+
+            <!-- START: FOLLOW PAGE HEADING -->
+
+            <div class="social-page-heading">
+
+                <span class="social-page-label">
+
+                    CONNECT WITH KEDU
+
+                </span>
+
+
+                <h2>
+
+                    Follow Us
+
+                </h2>
+
+
+                <p>
+
+                    Stay connected with KEDU across our official
+                    social platforms.
+
+                </p>
+
+            </div>
+
+            <!-- END: FOLLOW PAGE HEADING -->
+
+
+            <!-- START: HOME SOCIAL CARDS -->
+
+            <div
+                id="home-social-grid"
+                class="social-channels-grid"
+            ></div>
+
+            <!-- END: HOME SOCIAL CARDS -->
+
+
+        </section>
+
+        <!-- =================================
+             END: HOME FOLLOW US
+        ================================== -->
+
+
+    </section>
+
+    <!-- =================================
+         END: HOME PAGE
+    ================================== -->
+
+
+    <!-- =================================
+         START: APPS PAGE
+    ================================== -->
+
+    <section
+        id="apps"
+        class="page-section apps-section"
+    >
+
+
+        <!-- START: APPS HERO -->
+
+        <div class="apps-hero">
+
+
+            <span class="section-label">
+
+                KEDU ECOSYSTEM
+
+            </span>
+
+
+            <h2 class="apps-title">
+
+                KEDU Apps
+
+            </h2>
+
+
+            <p class="apps-description">
+
+                Discover all KEDU applications in one place.
+
+            </p>
+
+
+        </div>
+
+        <!-- END: APPS HERO -->
+
+
+        <!-- START: APPS SEARCH -->
+
+        <div class="apps-search-box">
+
+
+            <span
+                class="apps-search-icon"
+                aria-hidden="true"
+            >
+
+                ⌕
+
+            </span>
+
+
+            <input
+                id="apps-search-input"
+                type="search"
+                placeholder="Search KEDU apps..."
+                autocomplete="off"
+            >
+
+
+            <button
+                id="apps-search-button"
+                class="apps-search-button"
+                type="button"
+            >
+
+                SEARCH
+
+            </button>
+
+
+        </div>
+
+        <!-- END: APPS SEARCH -->
+
+
+        <!-- START: APPS FILTER PILLS -->
+
+        <div class="app-filter-pills apps-filter-pills">
+
+
+            <button
+                class="app-filter-pill active"
+                data-app-filter="kedu"
+                type="button"
+            >
+
+                KEDU Apps
+
+            </button>
+
+
+            <button
+                class="app-filter-pill"
+                data-app-filter="other"
+                type="button"
+            >
+
+                Other Apps
+
+            </button>
+
+
+        </div>
+
+        <!-- END: APPS FILTER PILLS -->
+
+
+                <!-- START: APPS GRID -->
+
+        <div
+            id="apps-grid"
+            class="apps-grid"
+        ></div>
+
+        <!-- END: APPS GRID -->
+
+
+        <!-- START: APPS EMPTY RESULT -->
+
+        <p
+            id="apps-empty"
+            class="apps-empty"
+            hidden
+        >
+            No applications found.
+        </p>
+
+        <!-- END: APPS EMPTY RESULT -->
+            <!-- START: OTHER APP PLACEHOLDER -->
+
+            <article
+                class="kedu-app-card"
+                data-app-category="other"
+                data-app-name="Other Apps"
+                hidden
+            >
+
+
+                <div class="other-app-placeholder">
+
+                    +
+
+                </div>
+
+
+                <div class="kedu-app-card-content">
+
+
+                    <h3>
+
+                        Other Apps
+
+                    </h3>
+
+
+                    <p class="app-developer">
+
+                        External Applications
+
+                    </p>
+
+
+                    <p class="app-coming-text">
+
+                        Coming Soon
+
+                    </p>
+
+
+                </div>
+
+
+            </article>
+
+            <!-- END: OTHER APP PLACEHOLDER -->
+
+
+        </div>
+
+        <!-- END: APPS GRID -->
+
+
+        </section>
+
+    <!-- =================================
+         END: APPS PAGE
+    ================================== -->
+
+
+    <!-- =================================
+         START: FOLLOW US PAGE
+    ================================== -->
+
+    <section
+        id="follow"
+        class="page-section follow-section"
+    >
+
+
+        <!-- START: FOLLOW PAGE HEADING -->
+
+        <div class="social-page-heading">
+
+            <span class="social-page-label">
+
+                CONNECT WITH KEDU
+
+            </span>
+
+
+            <h2>
+
+                Follow Us
+
+            </h2>
+
+
+            <p>
+
+                Stay connected with KEDU across our official
+                social platforms.
+
+            </p>
+
+        </div>
+
+        <!-- END: FOLLOW PAGE HEADING -->
+
+
+        <!-- START: FOLLOW SOCIAL CARDS -->
+
+        <div
+            id="follow-social-grid"
+            class="social-channels-grid"
+        ></div>
+
+        <!-- END: FOLLOW SOCIAL CARDS -->
+
+
+    </section>
+
+    <!-- =================================
+         END: FOLLOW US PAGE
+    ================================== -->
+<!-- =========================================
+     CONTACT PAGE
+========================================= -->
+
+<section
+    id="contact"
+    class="page-section"
+>
+
+    <div class="page-content">
+
+
+        <!-- =========================================
+             CONTACT PAGE HEADING
+        ========================================== -->
+
+        <div class="page-heading">
+
+            <span class="page-heading-label">
+                GET IN TOUCH
+            </span>
+
+            <h1>
+                Contact KEDU
+            </h1>
+
+            <p>
+                Have a question, suggestion or feedback?
+                Send us a message and we will get back to you.
+            </p>
+
+        </div>
+
+
+        <!-- =========================================
+             CONTACT FORM CARD
+        ========================================== -->
+
+        <div class="contact-form-card">
+
+            <form
+                id="kedu-contact-form"
+                class="kedu-contact-form"
+                novalidate
+            >
+
+
+                <!-- =====================================
+                     FULL NAME
+                ====================================== -->
+
+                <div class="contact-form-group">
+
+                    <label for="contact-name">
+                        Full Name
+                    </label>
+
+                    <input
+                        id="contact-name"
+                        name="name"
+                        type="text"
+                        placeholder="Enter your full name"
+                        autocomplete="name"
+                        required
+                    >
+
+                    <small
+                        class="contact-error"
+                        id="contact-name-error"
+                    ></small>
+
+                </div>
+
+
+                <!-- =====================================
+                     EMAIL
+                ====================================== -->
+
+                <div class="contact-form-group">
+
+                    <label for="contact-email">
+                        Email Address
+                    </label>
+
+                    <input
+                        id="contact-email"
+                        name="email"
+                        type="email"
+                        placeholder="Enter your email address"
+                        autocomplete="email"
+                        required
+                    >
+
+                    <small
+                        class="contact-error"
+                        id="contact-email-error"
+                    ></small>
+
+                </div>
+
+
+                <!-- =====================================
+                     SUBJECT SELECTOR
+                ====================================== -->
+
+                <div class="contact-form-group">
+
+                    <label>
+                        Subject
+                    </label>
+
+                    <button
+                        id="contact-subject-selector"
+                        class="contact-subject-selector"
+                        type="button"
+                    >
+
+                        <span
+                            id="contact-subject-selector-text"
+                            class="contact-subject-selector-text"
+                        >
+                            Select your message subject
+                        </span>
+
+                        <span
+                            class="contact-subject-selector-arrow"
+                        >
+                            ▾
+                        </span>
+
+                    </button>
+
+
+                    <input
+                        id="contact-subject"
+                        name="subject"
+                        type="hidden"
+                    >
+
+
+                    <small
+                        class="contact-error"
+                        id="contact-subject-error"
+                    ></small>
+
+                </div>
+
+
+                <!-- =====================================
+                     CUSTOM SUBJECT
+                ====================================== -->
+
+                <div
+                    id="contact-custom-subject-group"
+                    class="contact-form-group contact-custom-subject-group"
+                    hidden
+                >
+
+                    <label for="contact-custom-subject">
+                        Other Subject
+                    </label>
+
+                    <input
+                        id="contact-custom-subject"
+                        type="text"
+                        placeholder="Enter your subject"
+                    >
+
+                    <small
+                        class="contact-error"
+                        id="contact-custom-subject-error"
+                    ></small>
+
+                </div>
+
+
+                <!-- =====================================
+                     MESSAGE
+                ====================================== -->
+
+                <div class="contact-form-group">
+
+                    <label for="contact-message">
+                        Message
+                    </label>
+
+                    <textarea
+                        id="contact-message"
+                        name="message"
+                        rows="6"
+                        placeholder="Write your message here..."
+                        required
+                    ></textarea>
+
+                    <small
+                        class="contact-error"
+                        id="contact-message-error"
+                    ></small>
+
+                </div>
+
+
+                <!-- =====================================
+                     SUBMIT
+                ====================================== -->
+
+                <button
+                    id="contact-submit-button"
+                    class="contact-submit-button"
+                    type="submit"
+                >
+
+                    <span>
+                        SEND MESSAGE
+                    </span>
+
+                    <span class="contact-submit-icon">
+                        →
+                    </span>
+
+                </button>
+
+
+                <!-- =====================================
+                     STATUS
+                ====================================== -->
+
+                <div
+                    id="contact-form-status"
+                    class="contact-form-status"
+                    aria-live="polite"
+                ></div>
+
+
+                <!-- =====================================
+                     SENT MESSAGE HISTORY
+                ====================================== -->
+
+                <div
+                    id="contact-message-history"
+                    class="contact-message-history"
+                ></div>
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     CONTACT SUBJECT DIALOG
+========================================= -->
+
+<div
+    id="contact-subject-dialog"
+    class="contact-dialog-overlay"
+    hidden
+>
+
+    <div
+        class="contact-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="contact-subject-dialog-title"
+    >
+
+        <div class="contact-dialog-header">
+
+            <div>
+
+                <span class="contact-dialog-label">
+                    KEDU
+                </span>
+
+                <h2
+                    id="contact-subject-dialog-title"
+                >
+                    Select Subject
+                </h2>
+
+            </div>
+
+
+            <button
+                id="contact-subject-dialog-close"
+                class="contact-dialog-close"
+                type="button"
+                aria-label="Close"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div
+            id="contact-subject-options"
+            class="contact-subject-options"
+        ></div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     KEDU MESSAGE DIALOG
+========================================= -->
+
+<div
+    id="contact-thread-dialog"
+    class="contact-dialog-overlay"
+    hidden
+>
+
+    <div
+        class="contact-dialog contact-thread-dialog"
+        role="dialog"
+        aria-modal="true"
+    >
+
+        <div class="contact-dialog-header">
+
+            <div>
+
+                <span class="contact-dialog-label">
+                    KEDU SUPPORT
+                </span>
+
+                <h2>
+                    Your Message
+                </h2>
+
+            </div>
+
+
+            <button
+                id="contact-thread-dialog-close"
+                class="contact-dialog-close"
+                type="button"
+                aria-label="Close"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div
+            id="contact-thread-content"
+            class="contact-thread-content"
+        ></div>
+
+
+        <!-- FUTURE ADMIN REPLY AREA -->
+
+        <div
+            id="contact-thread-reply-area"
+            class="contact-thread-reply-area"
+        >
+
+            <p>
+                Replies from KEDU Admin will appear here.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     START: ABOUT KEDU PAGE
+========================================= -->
+
+<section
+    id="about"
+    class="page-section about-section"
+>
+
+
+    <!-- =====================================
+         ABOUT PAGE CONTENT
+    ====================================== -->
+
+    <div class="about-page-content">
+
+
+        <!-- =====================================
+             ABOUT HERO
+        ====================================== -->
+
+        <div class="about-page-hero">
+
+            <span class="about-page-label">
+                ABOUT KEDU
+            </span>
+
+            <h1>
+                Learn.
+                <span>Explore.</span>
+                Grow.
+            </h1>
+
+            <p>
+                Discover the vision behind the KEDU
+                ecosystem and the applications we create.
+            </p>
+
+        </div>
+
+        <!-- =====================================
+             END: ABOUT HERO
+        ====================================== -->
+
+
+        <!-- =====================================
+             KEDU ECOSYSTEM CARD
+        ====================================== -->
+
+        <article class="about-ecosystem-card">
+
+            <div class="about-logo-box">
+
+                <img
+                    src="assets/logo/kedu-logo.png"
+                    alt="KEDU Logo"
+                >
+
+            </div>
+
+
+            <span class="about-card-label">
+                KEDU ECOSYSTEM
+            </span>
+
+
+            <h2>
+                One Place. Many Possibilities.
+            </h2>
+
+
+            <p>
+                KEDU is an ecosystem created to bring useful
+                educational and learning applications together
+                in one place.
+            </p>
+
+        </article>
+
+        <!-- =====================================
+             END: KEDU ECOSYSTEM CARD
+        ====================================== -->
+
+
+        <!-- =====================================
+             WHO WE ARE
+        ====================================== -->
+
+        <article class="about-info-card">
+
+            <span class="about-card-label">
+                WHO WE ARE
+            </span>
+
+            <h2>
+                What Is KEDU?
+            </h2>
+
+            <p>
+                KEDU is a growing digital ecosystem focused on
+                creating useful applications and platforms for
+                students, learners and the education community.
+            </p>
+
+            <p>
+                Our goal is to make discovering and accessing
+                KEDU applications simple, clear and convenient
+                from one central platform.
+            </p>
+
+        </article>
+
+        <!-- =====================================
+             END: WHO WE ARE
+        ====================================== -->
+
+
+        <!-- =====================================
+             OUR ECOSYSTEM
+        ====================================== -->
+
+        <article class="about-applications-card">
+
+            <span class="about-card-label">
+                OUR ECOSYSTEM
+            </span>
+
+            <h2>
+                Explore KEDU Applications
+            </h2>
+
+            <p class="about-applications-description">
+                The KEDU ecosystem brings different applications
+                together so users can discover the tools that
+                match their needs.
+            </p>
+
+
+            <!-- START: APPLICATION LIST -->
+
+            <div class="about-app-list">
+
+
+                <div class="about-app-item">
+
+                    <span class="about-app-number">
+                        01
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            KEDU PW
+                        </h3>
+
+                        <p>
+                            An upcoming KEDU application.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="about-app-item">
+
+                    <span class="about-app-number">
+                        02
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            KEDU Next Topper
+                        </h3>
+
+                        <p>
+                            An upcoming KEDU application.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="about-app-item">
+
+                    <span class="about-app-number">
+                        03
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            KEDU Mission Jeet
+                        </h3>
+
+                        <p>
+                            An upcoming KEDU application.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <!-- END: APPLICATION LIST -->
+
+        </article>
+
+        <!-- =====================================
+             END: OUR ECOSYSTEM
+        ====================================== -->
+
+
+        <!-- =====================================
+             OUR PURPOSE
+        ====================================== -->
+
+        <article class="about-purpose-card">
+
+            <span class="about-card-label">
+                OUR PURPOSE
+            </span>
+
+            <h2>
+                Learn. Explore. Grow.
+            </h2>
+
+            <p>
+                We believe technology can make learning
+                resources easier to discover and access.
+                KEDU is being developed with that idea
+                at its core.
+            </p>
+
+        </article>
+
+        <!-- =====================================
+             END: OUR PURPOSE
+        ====================================== -->
+
+
+        <!-- =====================================
+             ABOUT PAGE FOOTER
+        ====================================== -->
+
+        <footer class="about-page-footer">
+
+            <strong>
+                KEDU
+            </strong>
+
+            <p>
+                Building a connected educational ecosystem.
+            </p>
+
+            <span>
+                Learn. Explore. Grow.
+            </span>
+
+            <small>
+                Made with
+                <b>❤</b>
+                in India
+            </small>
+
+        </footer>
+
+        <!-- =====================================
+             END: ABOUT PAGE FOOTER
+        ====================================== -->
+
+
+    </div>
+
+</section>
+
+<!-- =========================================
+     END: ABOUT KEDU PAGE
+========================================= -->
+
+</main>
+
+<!-- =================================
+     END: WEBSITE CONTENT
+================================== -->
+
+<!-- START: THEME DIALOG -->
+
+<div
+    id="theme-dialog-overlay"
+    class="theme-dialog-overlay"
+></div>
+
+
+<div
+    id="theme-dialog"
+    class="theme-dialog"
+>
+
+    <div class="theme-dialog-header">
+
+        <div>
+
+            <h2>
+                Choose Theme
+            </h2>
+
+            <p>
+                Select your preferred appearance
+            </p>
+
+        </div>
+
+
+        <button
+            id="close-theme-dialog"
+            class="theme-dialog-close"
+            type="button"
+            aria-label="Close theme dialog"
+        >
+            ×
+        </button>
+
+    </div>
+
+
+    <div class="theme-options">
+
+
+        <!-- START: LIGHT THEME -->
+
+        <button
+            class="theme-option"
+            data-theme="light"
+            type="button"
+        >
+
+            <span class="theme-option-icon">
+                ☀
+            </span>
+
+
+            <span class="theme-option-content">
+
+                <strong>
+                    Light
+                </strong>
+
+                <small>
+                    Use light appearance
+                </small>
+
+            </span>
+
+        </button>
+
+        <!-- END: LIGHT THEME -->
+
+
+        <!-- START: DARK THEME -->
+
+        <button
+            class="theme-option"
+            data-theme="dark"
+            type="button"
+        >
+
+            <span class="theme-option-icon">
+                ◐
+            </span>
+
+
+            <span class="theme-option-content">
+
+                <strong>
+                    Dark
+                </strong>
+
+                <small>
+                    Use dark appearance
+                </small>
+
+            </span>
+
+        </button>
+
+        <!-- END: DARK THEME -->
+
+
+        <!-- START: SYSTEM THEME -->
+
+        <button
+            class="theme-option"
+            data-theme="system"
+            type="button"
+        >
+
+            <span class="theme-option-icon">
+                ◉
+            </span>
+
+
+            <span class="theme-option-content">
+
+                <strong>
+                    System Default
+                </strong>
+
+                <small>
+                    Follow device settings
+                </small>
+
+            </span>
+
+        </button>
+
+        <!-- END: SYSTEM THEME -->
+
+
+    </div>
+
+</div>
+
+<!-- END: THEME DIALOG -->
+<!-- =================================
+     END: HOME PAGE
+================================== -->
+    <script src="js/loading.js"></script>
+
+<script src="js/drawer.js"></script>
+
+<script src="js/navigation.js"></script>
+
+<script src="js/theme.js"></script>
+
+<script src="js/notifications.js"></script>
+
+<script src="js/main.js"></script>
+
+<!-- START: SUPABASE LIBRARY -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- END: SUPABASE LIBRARY -->
+
+
+<!-- START: KEDU SUPABASE -->
+
+<script src="js/supabase.js"></script>
+
+<!-- END: KEDU SUPABASE -->
+
+
+<script src="js/app.js"></script>
+
+<script src="js/social.js"></script>
+<script src="js/contact.js"></script>
+
+<script src="js/about-kedu.js"></script>
+</body>
+</html>

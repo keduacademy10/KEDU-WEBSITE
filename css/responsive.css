@@ -1,0 +1,301 @@
+/* =========================================
+   RESPONSIVE — MOBILE
+   DEFAULT: 0px to 599px
+========================================= */
+
+@media (
+    max-width: 599px
+) {
+
+    .kedu-header {
+
+        padding:
+            0 12px;
+
+    }
+
+
+    .header-title {
+
+        font-size:
+            18px;
+
+    }
+
+
+    .header-menu-button {
+
+        width:
+            42px;
+
+        height:
+            42px;
+
+    }
+
+
+    .header-notification-button {
+
+        width:
+            42px;
+
+        height:
+            42px;
+
+    }
+
+
+    .kedu-drawer {
+
+        width:
+            min(
+                88vw,
+                320px
+            );
+
+    }
+
+
+    #website-content {
+
+        padding:
+            calc(
+                var(--header-height) + 24px
+            )
+            16px
+            32px;
+
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVE — TABLET
+   600px to 899px
+========================================= */
+
+@media (
+    min-width: 600px
+) and (
+    max-width: 899px
+) {
+
+    :root {
+
+        --header-height:
+            68px;
+
+        --drawer-width:
+            320px;
+
+    }
+
+
+    .kedu-header {
+
+        padding:
+            0 24px;
+
+    }
+
+
+    #website-content {
+
+        padding:
+            calc(
+                var(--header-height) + 32px
+            )
+            32px
+            48px;
+
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVE — LAPTOP
+   900px to 1279px
+========================================= */
+
+@media (
+    min-width: 900px
+) and (
+    max-width: 1279px
+) {
+
+    :root {
+
+        --header-height:
+            70px;
+
+        --drawer-width:
+            330px;
+
+    }
+
+
+    .kedu-header {
+
+        padding:
+            0 36px;
+
+    }
+
+
+    #website-content {
+
+        max-width:
+            1200px;
+
+        margin:
+            0 auto;
+
+        padding:
+            calc(
+                var(--header-height) + 40px
+            )
+            40px
+            60px;
+
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVE — DESKTOP
+   1280px AND ABOVE
+========================================= */
+
+@media (
+    min-width: 1280px
+) {
+
+    :root {
+
+        --header-height:
+            72px;
+
+        --drawer-width:
+            340px;
+
+    }
+
+
+    .kedu-header {
+
+        padding:
+            0 48px;
+
+    }
+
+
+    #website-content {
+
+        max-width:
+            1440px;
+
+        margin:
+            0 auto;
+
+        padding:
+            calc(
+                var(--header-height) + 48px
+            )
+            64px
+            80px;
+
+    }
+
+}
+/* =========================================
+   CONTACT DIALOG MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+    .contact-dialog-overlay {
+
+        padding:
+            12px;
+
+        align-items:
+            flex-end;
+    }
+
+
+    .contact-dialog {
+
+        width:
+            100%;
+
+        max-height:
+            88vh;
+
+        padding:
+            20px 16px;
+
+        border-radius:
+            24px;
+    }
+
+
+    .contact-dialog h2 {
+
+        font-size:
+            22px;
+    }
+
+
+    .contact-dialog-close {
+
+        width:
+            42px;
+
+        height:
+            42px;
+
+        border-radius:
+            13px;
+    }
+
+
+    .contact-subject-option {
+
+        min-height:
+            50px;
+
+        font-size:
+            13px;
+    }
+
+
+    .contact-ticket-card {
+
+        padding:
+            16px;
+    }
+
+
+    .contact-ticket-card h3 {
+
+        font-size:
+            16px;
+    }
+
+
+    .contact-thread-ticket-header {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+        gap:
+            7px;
+    }
+
+}

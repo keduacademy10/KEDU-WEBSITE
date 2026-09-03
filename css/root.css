@@ -1,0 +1,327 @@
+/* =========================================
+   KEDU WORLD — ROOT DESIGN SYSTEM
+========================================= */
+
+:root {
+
+    /* =====================================
+       BRAND COLORS
+    ===================================== */
+
+    --kedu-navy:
+        #0A1F5C;
+
+    --kedu-navy-dark:
+        #071333;
+
+    --kedu-navy-light:
+        #1C326B;
+
+    --kedu-gold:
+        #F4B400;
+
+    --kedu-gold-light:
+        #FFD54A;
+
+    --kedu-white:
+        #FFFFFF;
+
+    --kedu-black:
+        #000000;
+
+
+    /* =====================================
+       FUTURE COLOR SYSTEM
+    ===================================== */
+
+    --color-primary:
+        var(--kedu-navy);
+
+    --color-secondary:
+        var(--kedu-gold);
+
+    --color-accent:
+        var(--kedu-gold-light);
+
+
+    /* =====================================
+       LAYOUT
+    ===================================== */
+
+    --header-height:
+        64px;
+
+    --drawer-width:
+        340px;
+
+    --content-width:
+        1000px;
+
+
+    /* =====================================
+       RADIUS
+    ===================================== */
+
+    --radius-small:
+        12px;
+
+    --radius-medium:
+        20px;
+
+    --radius-large:
+        30px;
+
+
+    /* =====================================
+       TRANSITIONS
+    ===================================== */
+
+    --transition-fast:
+        0.2s ease;
+
+    --transition-normal:
+        0.35s ease;
+
+    --transition-slow:
+        0.6s ease;
+
+
+    /* =====================================
+       DEFAULT LIGHT COLORS
+    ===================================== */
+
+    --background-primary:
+        #F6F8FC;
+
+    --background-secondary:
+        #FFFFFF;
+
+    --background-card:
+        #FFFFFF;
+
+    --text-primary:
+        #0A1F5C;
+
+    --text-secondary:
+        #68728A;
+
+    --border-color:
+        rgba(10, 31, 92, 0.12);
+
+    --header-background:
+        #0A1F5C;
+
+    --header-text:
+        #FFFFFF;
+
+    --menu-background:
+        #FFFFFF;
+
+    --menu-text:
+        #0A1F5C;
+
+    --menu-hover:
+        rgba(10, 31, 92, 0.06);
+
+    --menu-active:
+        #0A1F5C;
+
+    --menu-active-text:
+        #FFFFFF;
+
+    --accent:
+        #0A1F5C;
+
+}
+
+
+/* =========================================
+   LIGHT THEME
+========================================= */
+
+html[data-theme="light"] {
+
+    --background-primary:
+        #F6F8FC;
+
+    --background-secondary:
+        #FFFFFF;
+
+    --background-card:
+        #FFFFFF;
+
+    --text-primary:
+        #0A1F5C;
+
+    --text-secondary:
+        #68728A;
+
+    --border-color:
+        rgba(10, 31, 92, 0.12);
+
+    --header-background:
+        #0A1F5C;
+
+    --header-text:
+        #FFFFFF;
+
+    --menu-background:
+        #FFFFFF;
+
+    --menu-text:
+        #0A1F5C;
+
+    --menu-hover:
+        rgba(10, 31, 92, 0.06);
+
+    --menu-active:
+        #0A1F5C;
+
+    --menu-active-text:
+        #FFFFFF;
+
+    --accent:
+        #0A1F5C;
+
+}
+
+
+/* =========================================
+   DARK THEME
+========================================= */
+
+html[data-theme="dark"] {
+
+    --background-primary:
+        #050816;
+
+    --background-secondary:
+        #08112A;
+
+    --background-card:
+        #101832;
+
+    --text-primary:
+        #FFFFFF;
+
+    --text-secondary:
+        #AAB3C5;
+
+    --border-color:
+        rgba(244, 180, 0, 0.22);
+
+    --header-background:
+        #08112A;
+
+    --header-text:
+        #F4B400;
+
+    --menu-background:
+        #0A1025;
+
+    --menu-text:
+        #F1F3F8;
+
+    --menu-hover:
+        rgba(244, 180, 0, 0.08);
+
+    --menu-active:
+        linear-gradient(
+            90deg,
+            #162B63,
+            #18203A
+        );
+
+    --menu-active-text:
+        #FFFFFF;
+
+    --accent:
+        #F4B400;
+
+}
+
+
+/* =========================================
+   SYSTEM DARK MODE
+========================================= */
+
+@media (
+    prefers-color-scheme: dark
+) {
+
+    html[data-theme="system"] {
+
+        --background-primary:
+            #050816;
+
+        --background-secondary:
+            #08112A;
+
+        --background-card:
+            #101832;
+
+        --text-primary:
+            #FFFFFF;
+
+        --text-secondary:
+            #AAB3C5;
+
+        --border-color:
+            rgba(244, 180, 0, 0.22);
+
+        --header-background:
+            #08112A;
+
+        --header-text:
+            #F4B400;
+
+        --menu-background:
+            #0A1025;
+
+        --menu-text:
+            #F1F3F8;
+
+        --menu-hover:
+            rgba(244, 180, 0, 0.08);
+
+        --menu-active:
+            linear-gradient(
+                90deg,
+                #162B63,
+                #18203A
+            );
+
+        --menu-active-text:
+            #FFFFFF;
+
+        --accent:
+            #F4B400;
+
+    }
+
+}
+
+
+/* =========================================
+   GLOBAL
+========================================= */
+
+html,
+body {
+
+    margin:
+        0;
+
+    padding:
+        0;
+
+    min-height:
+        100%;
+
+    background:
+        var(--background-primary);
+
+    color:
+        var(--text-primary);
+
+}
