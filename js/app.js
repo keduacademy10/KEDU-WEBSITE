@@ -75,7 +75,21 @@
 
     }
 
+    /* =====================================
+       CHECK WEBSITE AVAILABILITY
+    ===================================== */
 
+    function isWebsiteAvailable(
+        app
+    ) {
+
+        return Boolean(
+            app.category === "kedu" &&
+            app.website &&
+            app.website.trim()
+        );
+
+    }
     /* =====================================
        ESCAPE HTML
     ===================================== */
@@ -283,7 +297,7 @@
                 "",
 
 
-            download:
+                        download:
 
                 app.app_link ||
                 app.download_url ||
@@ -291,11 +305,17 @@
                 "",
 
 
+            website:
+
+                app.website_link ||
+                app.website ||
+                "",
+
+
             description:
 
                 app.description ||
                 "",
-
 
             downloads:
 
@@ -456,23 +476,29 @@
                 `;
 
 
-        /* =================================
-           DOWNLOAD BUTTON
+                /* =================================
+           APP ACTION BUTTONS
         ================================= */
 
-        const buttonText =
+        const websiteAvailable =
+            isWebsiteAvailable(
+                app
+            );
+
+
+        const downloadText =
             available
                 ? "DOWNLOAD"
                 : "COMING SOON";
 
 
-        const buttonClass =
+        const downloadClass =
             available
                 ? "kedu-app-download"
                 : "kedu-app-download coming-soon";
 
 
-        const buttonAttributes =
+        const downloadAttributes =
             available
                 ? `
                     href="${escapeHTML(
@@ -485,6 +511,35 @@
                     href="#"
                     aria-disabled="true"
                 `;
+
+
+        const websiteButtonHtml =
+            websiteAvailable
+                ? `
+                    <a
+                        class="kedu-app-study"
+                        href="${escapeHTML(
+                            app.website
+                        )}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <span class="study-icon">
+
+                            ↗
+
+                        </span>
+
+                        <span class="study-text">
+
+                            STUDY NOW
+
+                        </span>
+
+                    </a>
+                `
+                : "";
 
 
         /* =================================
@@ -536,26 +591,38 @@
                 ${metaHtml}
 
 
-                <a
-                    class="${buttonClass}"
-                    ${buttonAttributes}
+                                <!-- START: APP ACTIONS -->
+
+                <div
+                    class="kedu-app-actions"
                 >
 
-                    <span class="download-icon">
-
-                        ↓
-
-                    </span>
+                    ${websiteButtonHtml}
 
 
-                    <span class="download-text">
+                    <a
+                        class="${downloadClass}"
+                        ${downloadAttributes}
+                    >
 
-                        ${buttonText}
+                        <span class="download-icon">
 
-                    </span>
+                            ↓
 
-                </a>
+                        </span>
 
+
+                        <span class="download-text">
+
+                            ${downloadText}
+
+                        </span>
+
+                    </a>
+
+                </div>
+
+                <!-- END: APP ACTIONS -->
             </div>
 
             <!-- END: APP CONTENT -->

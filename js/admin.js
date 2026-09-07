@@ -1537,7 +1537,7 @@ function setupAppManagement() {
     }
 
 
-    if (appForm) {
+        if (appForm) {
 
         appForm.addEventListener(
             "submit",
@@ -1545,6 +1545,33 @@ function setupAppManagement() {
         );
 
     }
+
+
+    /* =================================
+       START: WEBSITE LINK EVENT
+    ================================= */
+
+    const developerInput =
+        document.getElementById(
+            "app-developer"
+        );
+
+
+    if (developerInput) {
+
+        developerInput.addEventListener(
+            "input",
+            updateWebsiteLinkVisibility
+        );
+
+    }
+
+
+    updateWebsiteLinkVisibility();
+
+    /* =================================
+       END: WEBSITE LINK EVENT
+    ================================= */
 
 }
 
@@ -1585,6 +1612,70 @@ function closeAppModal() {
 /* =================================
    START: ADD NEW APP
 ================================= */
+/* =================================
+   START: WEBSITE LINK VISIBILITY
+================================= */
+
+function updateWebsiteLinkVisibility() {
+
+    const developerInput =
+        document.getElementById(
+            "app-developer"
+        );
+
+
+    const websiteLinkGroup =
+        document.getElementById(
+            "website-link-group"
+        );
+
+
+    const websiteLinkInput =
+        document.getElementById(
+            "website-link"
+        );
+
+
+    if (
+        !developerInput ||
+        !websiteLinkGroup ||
+        !websiteLinkInput
+    ) {
+
+        return;
+
+    }
+
+
+    const developer =
+        developerInput
+            .value
+            .trim()
+            .toUpperCase();
+
+
+    const isKedu =
+        developer === "KEDU";
+
+
+    websiteLinkGroup.hidden =
+        !isKedu;
+
+
+    if (!isKedu) {
+
+        websiteLinkInput.value =
+            "";
+
+    }
+
+}
+
+
+/* =================================
+   END: WEBSITE LINK VISIBILITY
+================================= */
+
 
 async function addNewApp(event) {
 
@@ -1636,10 +1727,19 @@ async function addNewApp(event) {
             .trim();
 
 
-    const link =
+        const link =
         document
             .getElementById(
                 "app-link"
+            )
+            .value
+            .trim();
+
+
+    const websiteLink =
+        document
+            .getElementById(
+                "website-link"
             )
             .value
             .trim();
@@ -1727,12 +1827,16 @@ async function addNewApp(event) {
                         description:
                             description,
 
-                        app_link:
+                                                app_link:
                             link,
+
+
+                        website_link:
+                            websiteLink,
+
 
                         app_icon:
                             icon,
-
                         category:
                             category,
 

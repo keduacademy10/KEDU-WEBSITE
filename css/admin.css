@@ -928,6 +928,46 @@ input {
     border-color: var(--admin-gold);
 }
 
+
+/* =================================
+   START: WEBSITE LINK GROUP
+================================= */
+
+.website-link-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+/* HIDDEN STATE */
+
+.website-link-group[hidden] {
+    display: none;
+}
+
+
+/* WEBSITE LINK LABEL */
+
+.website-link-group label {
+    margin: 17px 0 8px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+/* WEBSITE LINK INPUT */
+
+.website-link-group input {
+    width: 100%;
+}
+
+
+/* =================================
+   END: WEBSITE LINK GROUP
+================================= */
+
+
 /* =================================
    END: APP MODAL
 ================================= */

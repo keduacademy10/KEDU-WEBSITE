@@ -3013,10 +3013,157 @@ html[data-theme="dark"]
 }
 
 
-.kedu-app-download.coming-soon {
+/* =========================================
+   START: APP ACTION BUTTONS
+========================================= */
 
-    opacity:
-        0.70;
+.kedu-app-actions {
+
+    display:
+        flex;
+
+    align-items:
+        stretch;
+
+    gap:
+        10px;
+
+    margin-top:
+        20px;
+
+}
+
+
+/* =========================================
+   STUDY NOW BUTTON
+========================================= */
+
+.kedu-app-study {
+
+    flex:
+        1;
+
+    min-height:
+        52px;
+
+    padding:
+        0 14px;
+
+    border-radius:
+        999px;
+
+    background:
+        #38BDF8;
+
+    color:
+        #082F49;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        7px;
+
+    text-decoration:
+        none;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.03em;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+
+}
+
+
+.kedu-app-study:active {
+
+    transform:
+        scale(0.97);
+
+}
+
+
+/* =========================================
+   DOWNLOAD BUTTON
+========================================= */
+
+.kedu-app-download {
+
+    flex:
+        1;
+
+    min-height:
+        52px;
+
+    padding:
+        0 14px;
+
+    border:
+        none;
+
+    border-radius:
+        999px;
+
+    background:
+        var(--header-background);
+
+    color:
+        var(--header-text);
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        7px;
+
+    text-decoration:
+        none;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.03em;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+
+}
+
+
+.kedu-app-download:not(
+    .coming-soon
+):active {
+
+    transform:
+        scale(0.97);
+
+}
+
+
+/* =========================================
+   COMING SOON BUTTON
+========================================= */
+
+.kedu-app-download.coming-soon {
 
     cursor:
         not-allowed;
@@ -3027,8 +3174,68 @@ html[data-theme="dark"]
     color:
         var(--app-muted);
 
+    opacity:
+        1;
+
 }
 
+
+/* =========================================
+   SINGLE BUTTON MODE
+========================================= */
+
+.kedu-app-actions:not(
+    :has(.kedu-app-study)
+) {
+
+    display:
+        block;
+
+}
+
+
+.kedu-app-actions:not(
+    :has(.kedu-app-study)
+)
+.kedu-app-download {
+
+    width:
+        100%;
+
+}
+
+
+/* =========================================
+   DARK MODE APP ACTION FIX
+========================================= */
+
+html[data-theme="dark"]
+.kedu-app-study {
+
+    background:
+        #38BDF8;
+
+    color:
+        #061E2D;
+
+}
+
+
+html[data-theme="dark"]
+.kedu-app-download.coming-soon {
+
+    background:
+        #2A3242;
+
+    color:
+        #AEB7C8;
+
+}
+
+
+/* =========================================
+   END: APP ACTION BUTTONS
+========================================= */
 
 /* =========================================
    EMPTY STATE
