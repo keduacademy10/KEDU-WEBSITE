@@ -1567,14 +1567,24 @@ function setupAppManagement() {
     }
 
 
-    updateWebsiteLinkVisibility();
+        updateWebsiteLinkVisibility();
 
     /* =================================
        END: WEBSITE LINK EVENT
     ================================= */
 
-}
 
+    /* =================================
+       START: NOTIFICATION MANAGEMENT EVENT
+    ================================= */
+
+    setupNotificationManagement();
+
+    /* =================================
+       END: NOTIFICATION MANAGEMENT EVENT
+    ================================= */
+
+}
 
 function openAppModal() {
 
@@ -1606,6 +1616,751 @@ function closeAppModal() {
 
 /* =================================
    END: APP MANAGEMENT
+================================= */
+
+
+/* =================================
+   START: NOTIFICATION MANAGEMENT
+================================= */
+
+function setupNotificationManagement() {
+
+    const manageNotificationsButton =
+        document.getElementById(
+            "manage-notifications-button"
+        );
+
+
+    const notificationsList =
+        document.getElementById(
+            "notifications-list"
+        );
+
+
+    const notificationModal =
+        document.getElementById(
+            "notification-modal"
+        );
+
+
+    const closeNotificationModalButton =
+        document.getElementById(
+            "close-notification-modal"
+        );
+
+
+    const notificationForm =
+        document.getElementById(
+            "notification-form"
+        );
+
+
+    if (manageNotificationsButton) {
+
+        manageNotificationsButton.addEventListener(
+            "click",
+            () => {
+
+                document
+                    .querySelector(
+                        ".notifications-section"
+                    )
+                    ?.scrollIntoView(
+                        {
+                            behavior:
+                                "smooth"
+                        }
+                    );
+
+            }
+        );
+
+    }
+
+
+    if (closeNotificationModalButton) {
+
+        closeNotificationModalButton.addEventListener(
+            "click",
+            closeNotificationModal
+        );
+
+    }
+
+
+    if (notificationModal) {
+
+        notificationModal.addEventListener(
+            "click",
+            (event) => {
+
+                if (
+                    event.target ===
+                    notificationModal
+                ) {
+
+                    closeNotificationModal();
+
+                }
+
+            }
+        );
+
+    }
+
+
+    if (notificationForm) {
+
+        notificationForm.addEventListener(
+            "submit",
+            updateNotification
+        );
+
+    }
+
+
+    if (notificationsList) {
+
+        notificationsList.addEventListener(
+            "click",
+            async (event) => {
+
+                const editButton =
+                    event.target.closest(
+                        "[data-edit-notification]"
+                    );
+
+
+                const deleteButton =
+                    event.target.closest(
+                        "[data-delete-notification]"
+                    );
+
+
+                if (editButton) {
+
+                    await openNotificationEditor(
+                        editButton.dataset
+                            .editNotification
+                    );
+
+                    return;
+
+                }
+
+
+                if (deleteButton) {
+
+                    await deleteNotification(
+                        deleteButton.dataset
+                            .deleteNotification
+                    );
+
+                }
+
+            }
+        );
+
+    }
+
+
+    loadAdminNotifications();
+
+}
+
+
+/* =================================
+   END: NOTIFICATION MANAGEMENT
+================================= */
+
+
+/* =================================
+   START: LOAD ADMIN NOTIFICATIONS
+================================= */
+
+async function loadAdminNotifications() {
+
+    const notificationsList =
+        document.getElementById(
+            "notifications-list"
+        );
+
+
+    if (
+        !notificationsList ||
+        !window.keduSupabase
+    ) {
+
+        return;
+
+    }
+
+
+    const {
+        data,
+        error
+    } =
+        await window
+            .keduSupabase
+            .from(
+                "notifications"
+            )
+            .select(
+                "*"
+            )
+            .order(
+                "created_at",
+                {
+                    ascending:
+                        false
+                }
+            );
+
+
+    if (error) {
+
+        console.error(
+            "Notification loading error:",
+            error
+        );
+
+
+        notificationsList.innerHTML =
+            `
+            <div class="empty-state">
+
+                <div>
+                    ⚠
+                </div>
+
+                <h3>
+                    Unable To Load Notifications
+                </h3>
+
+                <p>
+                    Check the notifications
+                    Supabase table.
+                </p>
+
+            </div>
+            `;
+
+
+        return;
+
+    }
+
+
+    renderAdminNotifications(
+        data || []
+    );
+
+}
+
+
+/* =================================
+   END: LOAD ADMIN NOTIFICATIONS
+================================= */
+
+
+/* =================================
+   START: RENDER ADMIN NOTIFICATIONS
+================================= */
+
+function renderAdminNotifications(
+    notifications
+) {
+
+    const notificationsList =
+        document.getElementById(
+            "notifications-list"
+        );
+
+
+    const notificationsCountBadge =
+        document.getElementById(
+            "notifications-count-badge"
+        );
+
+
+    if (!notificationsList) {
+
+        return;
+
+    }
+
+
+    if (notificationsCountBadge) {
+
+        notificationsCountBadge.textContent =
+            `${notifications.length} ${
+                notifications.length === 1
+                    ? "Notification"
+                    : "Notifications"
+            }`;
+
+    }
+
+
+    if (
+        notifications.length ===
+        0
+    ) {
+
+        notificationsList.innerHTML =
+            `
+            <div class="empty-state">
+
+                <div>
+                    🔔
+                </div>
+
+                <h3>
+                    No Notifications
+                </h3>
+
+                <p>
+                    App notifications will appear
+                    here automatically.
+                </p>
+
+            </div>
+            `;
+
+
+        return;
+
+    }
+
+
+    notificationsList.innerHTML =
+        "";
+
+
+    notifications.forEach(
+        (
+            notification
+        ) => {
+
+            const notificationCard =
+                document.createElement(
+                    "article"
+                );
+
+
+            const createdAt =
+                notification.created_at
+                    ? new Date(
+                        notification.created_at
+                    ).toLocaleString()
+                    : "Unknown date";
+
+
+            notificationCard.className =
+                "admin-notification-card";
+
+
+            notificationCard.innerHTML =
+                `
+                <div
+                    class="admin-notification-header"
+                >
+
+                    <div
+                        class="admin-notification-main"
+                    >
+
+                        <div
+                            class="admin-notification-icon"
+                        >
+
+                            🔔
+
+                        </div>
+
+
+                        <div
+                            class="admin-notification-content"
+                        >
+
+                            <h4>
+
+                                ${escapeHTML(
+                                    notification.title
+                                )}
+
+                            </h4>
+
+
+                            <p>
+
+                                ${escapeHTML(
+                                    notification.message
+                                )}
+
+                            </p>
+
+
+                            <div
+                                class="admin-notification-date"
+                            >
+
+                                ${escapeHTML(
+                                    createdAt
+                                )}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="notification-actions"
+                >
+
+                    <button
+                        type="button"
+                        class="edit-notification-button"
+                        data-edit-notification="${escapeHTML(
+                            notification.id
+                        )}"
+                    >
+
+                        Edit
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="delete-notification-button"
+                        data-delete-notification="${escapeHTML(
+                            notification.id
+                        )}"
+                    >
+
+                        Delete
+
+                    </button>
+
+                </div>
+                `;
+
+
+            notificationsList.appendChild(
+                notificationCard
+            );
+
+        }
+    );
+
+}
+
+
+/* =================================
+   END: RENDER ADMIN NOTIFICATIONS
+================================= */
+
+
+/* =================================
+   START: OPEN NOTIFICATION EDITOR
+================================= */
+
+async function openNotificationEditor(
+    notificationId
+) {
+
+    const {
+        data,
+        error
+    } =
+        await window
+            .keduSupabase
+            .from(
+                "notifications"
+            )
+            .select(
+                "*"
+            )
+            .eq(
+                "id",
+                notificationId
+            )
+            .single();
+
+
+    if (error) {
+
+        console.error(
+            "Notification loading error:",
+            error
+        );
+
+
+        alert(
+            "Unable to open notification."
+        );
+
+
+        return;
+
+    }
+
+
+    document
+        .getElementById(
+            "editing-notification-id"
+        )
+        .value =
+        data.id;
+
+
+    document
+        .getElementById(
+            "notification-title"
+        )
+        .value =
+        data.title || "";
+
+
+    document
+        .getElementById(
+            "notification-message"
+        )
+        .value =
+        data.message || "";
+
+
+    document
+        .getElementById(
+            "notification-modal"
+        )
+        ?.classList
+        .add(
+            "show"
+        );
+
+}
+
+
+/* =================================
+   END: OPEN NOTIFICATION EDITOR
+================================= */
+
+
+/* =================================
+   START: CLOSE NOTIFICATION MODAL
+================================= */
+
+function closeNotificationModal() {
+
+    document
+        .getElementById(
+            "notification-modal"
+        )
+        ?.classList
+        .remove(
+            "show"
+        );
+
+
+    document
+        .getElementById(
+            "notification-form"
+        )
+        ?.reset();
+
+}
+
+
+/* =================================
+   END: CLOSE NOTIFICATION MODAL
+================================= */
+
+
+/* =================================
+   START: UPDATE NOTIFICATION
+================================= */
+
+async function updateNotification(
+    event
+) {
+
+    event.preventDefault();
+
+
+    const notificationId =
+        document
+            .getElementById(
+                "editing-notification-id"
+            )
+            .value;
+
+
+    const title =
+        document
+            .getElementById(
+                "notification-title"
+            )
+            .value
+            .trim();
+
+
+    const message =
+        document
+            .getElementById(
+                "notification-message"
+            )
+            .value
+            .trim();
+
+
+    if (
+        !notificationId ||
+        !title ||
+        !message
+    ) {
+
+        return;
+
+    }
+
+
+    const {
+        error
+    } =
+        await window
+            .keduSupabase
+            .from(
+                "notifications"
+            )
+            .update(
+                {
+                    title:
+                        title,
+
+                    message:
+                        message,
+
+                    updated_at:
+                        new Date()
+                            .toISOString()
+                }
+            )
+            .eq(
+                "id",
+                notificationId
+            );
+
+
+    if (error) {
+
+        console.error(
+            "Notification update error:",
+            error
+        );
+
+
+        alert(
+            "Unable to update notification."
+        );
+
+
+        return;
+
+    }
+
+
+    closeNotificationModal();
+
+
+    await loadAdminNotifications();
+
+
+    alert(
+        "Notification updated successfully."
+    );
+
+}
+
+
+/* =================================
+   END: UPDATE NOTIFICATION
+================================= */
+
+
+/* =================================
+   START: DELETE NOTIFICATION
+================================= */
+
+async function deleteNotification(
+    notificationId
+) {
+
+    const shouldDelete =
+        window.confirm(
+            "Delete this notification only?\n\n" +
+            "The application will not be deleted."
+        );
+
+
+    if (!shouldDelete) {
+
+        return;
+
+    }
+
+
+    const {
+        error
+    } =
+        await window
+            .keduSupabase
+            .from(
+                "notifications"
+            )
+            .delete()
+            .eq(
+                "id",
+                notificationId
+            );
+
+
+    if (error) {
+
+        console.error(
+            "Notification delete error:",
+            error
+        );
+
+
+        alert(
+            "Unable to delete notification."
+        );
+
+
+        return;
+
+    }
+
+
+    await loadAdminNotifications();
+
+
+    alert(
+        "Notification deleted.\n\n" +
+        "The application was not deleted."
+    );
+
+}
+
+
+/* =================================
+   END: DELETE NOTIFICATION
 ================================= */
 
 
@@ -1846,11 +2601,57 @@ async function addNewApp(event) {
                 );
 
 
-        if (error) {
+                if (error) {
 
             throw error;
 
         }
+
+
+        /* =================================
+           START: AUTO APP NOTIFICATION
+        ================================= */
+
+        const {
+            error:
+                notificationError
+        } =
+            await window
+                .keduSupabase
+                .from(
+                    "notifications"
+                )
+                .insert(
+                    {
+                        title:
+                            "New App Added",
+
+                        message:
+                            `${name} is now available.`,
+
+                        notification_type:
+                            "app_added",
+
+                        created_at:
+                            new Date()
+                                .toISOString(),
+
+                        updated_at:
+                            new Date()
+                                .toISOString()
+                    }
+                );
+
+
+        if (notificationError) {
+
+            throw notificationError;
+
+        }
+
+        /* =================================
+           END: AUTO APP NOTIFICATION
+        ================================= */
 
 
         document
@@ -1864,7 +2665,6 @@ async function addNewApp(event) {
             document.getElementById(
                 "app-icon-preview"
             );
-
 
         if (preview) {
 

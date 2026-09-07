@@ -136,50 +136,7 @@
     }
 
 
-    /* =====================================
-       CREATE APP NOTIFICATION
-    ===================================== */
-
-    function createAppNotification(
-        app
-    ) {
-
-        return {
-
-            id:
-                "new-app-" +
-                app.id,
-
-            type:
-                "new-app",
-
-            appId:
-                app.id,
-
-            appName:
-                app.name,
-
-            icon:
-                app.icon,
-
-            title:
-                "New App Available",
-
-            message:
-                `${app.name} is now available for download.`,
-
-            createdAt:
-                Date.now()
-
-        };
-
-    }
-
-
-    /* =====================================
-       LOAD APPS FROM SUPABASE
-    ===================================== */
-
+    
     async function getAvailableApps() {
 
         if (
@@ -292,116 +249,157 @@
             return [];
 
         }
+    }
+    /* =====================================
+       NOTIFICATIONS MEMORY
+    ===================================== */
+
+    let notificationsCache =
+        [];
+
+
+    /* =====================================
+       GET NOTIFICATIONS
+    ===================================== */
+
+    function getNotifications() {
+
+        return notificationsCache;
 
     }
 
 
     /* =====================================
-       DETECT NEW APPS
+       LOAD NOTIFICATIONS FROM SUPABASE
     ===================================== */
 
-    async function detectNewApps() {
-
-        const notifications =
-            getNotifications();
-
-
-        const availableApps =
-            await getAvailableApps();
-
-
-        let changed =
-            false;
-
-
-        availableApps.forEach(
-            function (
-                app
-            ) {
-
-                const notificationId =
-                    "new-app-" +
-                    app.id;
-
-
-                const existingIndex =
-                    notifications.findIndex(
-                        function (
-                            notification
-                        ) {
-
-                            return (
-                                notification.id ===
-                                notificationId
-                            );
-
-                        }
-                    );
-
-
-                const notification =
-                    createAppNotification(
-                        app
-                    );
-
-
-                notification.createdAt =
-                    app.createdAt;
-
-
-                if (
-                    existingIndex === -1
-                ) {
-
-                    notifications.push(
-                        notification
-                    );
-
-
-                    changed =
-                        true;
-
-                }
-
-                else {
-
-                    notifications[
-                        existingIndex
-                    ] =
-                        {
-                            ...notifications[
-                                existingIndex
-                            ],
-                            appName:
-                                app.name,
-                            icon:
-                                app.icon,
-                            createdAt:
-                                app.createdAt
-                        };
-
-
-                    changed =
-                        true;
-
-                }
-
-            }
-        );
-
+    async function loadNotifications() {
 
         if (
-            changed
+            !window.keduSupabase
         ) {
 
-            saveNotifications(
-                notifications
-            );
+            notificationsCache =
+                [];
+
+
+            return notificationsCache;
 
         }
 
 
-        return notifications;
+        try {
+
+            const {
+                data,
+                error
+            } =
+                await window
+                    .keduSupabase
+                    .from(
+                        "notifications"
+                    )
+                    .select(
+                        `
+                        id,
+                        title,
+                        message,
+                        notification_type,
+                        created_at,
+                        updated_at
+                        `
+                    )
+                    .order(
+                        "created_at",
+                        {
+                            ascending:
+                                false
+                        }
+                    );
+
+
+            if (
+                error
+            ) {
+
+                throw error;
+
+            }
+
+
+            notificationsCache =
+                (
+                    data ||
+                    []
+                )
+                .map(
+                    function (
+                        notification
+                    ) {
+
+                        return {
+
+                            id:
+                                String(
+                                    notification.id
+                                ),
+
+                            type:
+                                notification
+                                    .notification_type ||
+                                "general",
+
+                            appId:
+                                null,
+
+                            appName:
+                                "KEDU",
+
+                            icon:
+                                "",
+
+                            title:
+                                notification.title ||
+                                "Notification",
+
+                            message:
+                                notification.message ||
+                                "",
+
+                            createdAt:
+                                notification.created_at
+                                    ? new Date(
+                                        notification.created_at
+                                    ).getTime()
+                                    : Date.now()
+
+                        };
+
+                    }
+                );
+
+
+            return notificationsCache;
+
+        }
+
+        catch (
+            error
+        ) {
+
+            console.error(
+                "Unable to load notifications:",
+                error
+            );
+
+
+            notificationsCache =
+                [];
+
+
+            return notificationsCache;
+
+        }
 
     }
 
@@ -915,9 +913,9 @@
         }
 
 
-                /* DETECT APPS */
+                        /* LOAD NOTIFICATIONS */
 
-        detectNewApps()
+        loadNotifications()
             .then(
                 function () {
 
@@ -925,11 +923,6 @@
 
                 }
             );
-
-
-        /* RENDER */
-
-        renderNotifications();
 
 
         /* OPEN */
@@ -1052,22 +1045,20 @@
         );
 
 
-        /* APP DATA UPDATED EVENT */
+                /* NOTIFICATION DATA UPDATED EVENT */
 
-                window.addEventListener(
+        window.addEventListener(
             "keduAppsUpdated",
             async function () {
 
-                await detectNewApps();
+                await loadNotifications();
 
                 renderNotifications();
 
             }
         );
-
-
-        /* =====================================
-           SUPABASE APP NOTIFICATION REALTIME
+                /* =====================================
+           SUPABASE NOTIFICATION REALTIME
         ===================================== */
 
         if (
@@ -1083,17 +1074,17 @@
                     "postgres_changes",
                     {
                         event:
-                            "INSERT",
+                            "*",
 
                         schema:
                             "public",
 
                         table:
-                            "apps"
+                            "notifications"
                     },
                     async function () {
 
-                        await detectNewApps();
+                        await loadNotifications();
 
                         renderNotifications();
 
@@ -1102,7 +1093,6 @@
                 .subscribe();
 
         }
-
     }
 
 
@@ -1129,17 +1119,17 @@
     }
 
 
-    /* =====================================
+        /* =====================================
        GLOBAL NOTIFICATION API
     ===================================== */
 
-        window.KEDU_NOTIFICATIONS =
+    window.KEDU_NOTIFICATIONS =
         {
 
             refresh:
                 async function () {
 
-                    await detectNewApps();
+                    await loadNotifications();
 
                     renderNotifications();
 
@@ -1148,9 +1138,8 @@
             open:
                 openNotifications,
 
-                        close:
+            close:
                 closeNotifications
 
         };
-
-})();
+    })();

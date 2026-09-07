@@ -733,7 +733,45 @@
                             </b>
 
                         </button>
+                        <!-- START: MANAGE NOTIFICATIONS ACTION -->
 
+                        <button
+                            type="button"
+                            id="manage-notifications-button"
+                            class="quick-action-card"
+                        >
+
+                            <span class="quick-icon">
+
+                                🔔
+
+                            </span>
+
+                            <div>
+
+                                <strong>
+
+                                    Manage Notifications
+
+                                </strong>
+
+                                <small>
+
+                                    Edit or delete sent notifications
+
+                                </small>
+
+                            </div>
+
+                            <b>
+
+                                →
+
+                            </b>
+
+                        </button>
+
+                        <!-- END: MANAGE NOTIFICATIONS ACTION -->
 
                         <button
                             type="button"
@@ -819,7 +857,79 @@
                     </section>
 
                     <!-- END: APP LIST -->
+                    <!-- START: NOTIFICATIONS SECTION -->
 
+                    <section
+                        class="notifications-section"
+                    >
+
+                        <div
+                            class="section-heading"
+                        >
+
+                            <div>
+
+                                <span>
+
+                                    NOTIFICATION CENTER
+
+                                </span>
+
+                                <h3>
+
+                                    Sent Notifications
+
+                                </h3>
+
+                            </div>
+
+
+                            <span
+                                id="notifications-count-badge"
+                                class="count-badge"
+                            >
+
+                                0 Notifications
+
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            id="notifications-list"
+                            class="notifications-list"
+                        >
+
+                            <div
+                                class="empty-state"
+                            >
+
+                                <div>
+
+                                    🔔
+
+                                </div>
+
+                                <h3>
+
+                                    No Notifications
+
+                                </h3>
+
+                                <p>
+
+                                    App notifications will appear here automatically.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                    <!-- END: NOTIFICATIONS SECTION -->
 
                 </div>
 
@@ -1221,7 +1331,114 @@
 
             <!-- END: ADD APP MODAL -->
 
+            <!-- START: EDIT NOTIFICATION MODAL -->
 
+            <div
+                id="notification-modal"
+                class="admin-modal"
+                aria-hidden="true"
+            >
+
+                <div
+                    class="modal-card notification-modal-card"
+                >
+
+                    <div
+                        class="modal-header"
+                    >
+
+                        <div>
+
+                            <span>
+
+                                NOTIFICATION EDITOR
+
+                            </span>
+
+                            <h3>
+
+                                Edit Notification
+
+                            </h3>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            id="close-notification-modal"
+                            aria-label="Close notification editor"
+                        >
+
+                            ×
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- START: NOTIFICATION FORM -->
+
+                    <form
+                        id="notification-form"
+                        class="app-form"
+                    >
+
+                        <input
+                            type="hidden"
+                            id="editing-notification-id"
+                        >
+
+
+                        <label
+                            for="notification-title"
+                        >
+
+                            Notification Title
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="notification-title"
+                            placeholder="Enter notification title"
+                            required
+                        >
+
+
+                        <label
+                            for="notification-message"
+                        >
+
+                            Notification Message
+
+                        </label>
+
+                        <textarea
+                            id="notification-message"
+                            placeholder="Enter notification message"
+                            required
+                        ></textarea>
+
+
+                        <button
+                            type="submit"
+                            class="save-app-button"
+                        >
+
+                            UPDATE NOTIFICATION
+
+                        </button>
+
+                    </form>
+
+                    <!-- END: NOTIFICATION FORM -->
+
+                </div>
+
+            </div>
+
+            <!-- END: EDIT NOTIFICATION MODAL -->
         </section>
 
         <!-- ==============================

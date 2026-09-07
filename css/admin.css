@@ -1187,6 +1187,294 @@ input {
    END: DESKTOP
 ================================= */
 /* =================================
+   START: NOTIFICATION MANAGEMENT
+================================= */
+
+.notifications-section {
+    margin-top: 28px;
+}
+
+
+.notifications-list {
+    display: grid;
+    gap: 14px;
+}
+
+
+/* =================================
+   START: NOTIFICATION CARD
+================================= */
+
+.admin-notification-card {
+    padding: 18px;
+    border: 1px solid var(--admin-border);
+    border-radius: 20px;
+    background: var(--admin-card);
+    box-shadow:
+        0 12px 30px
+        rgba(0, 0, 0, 0.12);
+}
+
+
+.admin-notification-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+
+.admin-notification-main {
+    min-width: 0;
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+}
+
+
+.admin-notification-icon {
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    background:
+        rgba(244, 180, 0, 0.10);
+    color: var(--admin-gold);
+    font-size: 21px;
+}
+
+
+.admin-notification-content {
+    min-width: 0;
+    flex: 1;
+}
+
+
+.admin-notification-content h4 {
+    margin: 0;
+    color: var(--admin-white);
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+
+.admin-notification-content p {
+    margin:
+        7px
+        0
+        0;
+    color:
+        rgba(255, 255, 255, 0.62);
+    font-size: 13px;
+    line-height: 1.6;
+    word-break: break-word;
+}
+
+
+.admin-notification-date {
+    margin-top: 10px;
+    color:
+        rgba(255, 255, 255, 0.42);
+    font-size: 10px;
+    font-weight: 600;
+}
+
+
+/* =================================
+   END: NOTIFICATION CARD
+================================= */
+
+
+/* =================================
+   START: NOTIFICATION ACTIONS
+================================= */
+
+.notification-actions {
+    margin-top: 17px;
+    padding-top: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    border-top:
+        1px solid
+        var(--admin-border);
+}
+
+
+.edit-notification-button,
+.delete-notification-button {
+    min-height: 38px;
+    padding:
+        0
+        15px;
+    border: 0;
+    border-radius: 11px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.edit-notification-button {
+    color: var(--admin-navy);
+    background: var(--admin-gold);
+}
+
+
+.delete-notification-button {
+    color: #ffffff;
+    background:
+        rgba(220, 53, 69, 0.82);
+}
+
+
+.edit-notification-button:active,
+.delete-notification-button:active {
+    transform:
+        scale(0.96);
+}
+
+
+.edit-notification-button:hover,
+.delete-notification-button:hover {
+    opacity: 0.88;
+}
+
+
+/* =================================
+   END: NOTIFICATION ACTIONS
+================================= */
+
+
+/* =================================
+   START: NOTIFICATION EMPTY STATE
+================================= */
+
+.notifications-list
+.empty-state {
+    padding:
+        35px
+        20px;
+}
+
+
+.notifications-list
+.empty-state > div {
+    width: 58px;
+    height: 58px;
+    margin:
+        0
+        auto
+        15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    background:
+        rgba(244, 180, 0, 0.10);
+    font-size: 25px;
+}
+
+
+.notifications-list
+.empty-state h3 {
+    margin: 0;
+    text-align: center;
+}
+
+
+.notifications-list
+.empty-state p {
+    margin:
+        8px
+        0
+        0;
+    text-align: center;
+}
+
+
+/* =================================
+   END: NOTIFICATION EMPTY STATE
+================================= */
+
+
+/* =================================
+   START: NOTIFICATION MODAL
+================================= */
+
+.notification-modal-card {
+    max-width: 520px;
+}
+
+
+#notification-message {
+    min-height: 140px;
+}
+
+
+#notification-title,
+#notification-message {
+    width: 100%;
+}
+
+
+/* =================================
+   END: NOTIFICATION MODAL
+================================= */
+
+
+/* =================================
+   START: NOTIFICATION RESPONSIVE
+================================= */
+
+@media (max-width: 480px) {
+
+    .admin-notification-header {
+        gap: 10px;
+    }
+
+
+    .admin-notification-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 14px;
+        font-size: 19px;
+    }
+
+
+    .notification-actions {
+        justify-content: stretch;
+    }
+
+
+    .edit-notification-button,
+    .delete-notification-button {
+        flex: 1;
+    }
+
+}
+
+
+/* =================================
+   END: NOTIFICATION RESPONSIVE
+================================= */
+
+
+/* =================================
+   END: NOTIFICATION MANAGEMENT
+================================= */
+
+/* =================================
    START: MESSAGE SYSTEM
 ================================= */
 
